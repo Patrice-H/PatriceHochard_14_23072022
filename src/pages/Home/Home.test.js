@@ -22,4 +22,24 @@ describe('Home page test suites', () => {
     const expectedLink = screen.getByText('View Current Employees');
     expect(expectedLink).toBeInTheDocument();
   });
+
+  it('Should render create employee subtitle', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+    const expectedSubtitle = screen.getByText('Create Employee');
+    expect(expectedSubtitle).toBeInTheDocument();
+  });
+
+  it('Should render address fieldset', () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
+    const expectedSubtitle = screen.getByText('Address');
+    expect(expectedSubtitle).toBeInTheDocument();
+  });
 });
