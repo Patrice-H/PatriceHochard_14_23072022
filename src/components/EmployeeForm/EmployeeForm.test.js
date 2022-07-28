@@ -1,7 +1,18 @@
 import { render, screen } from '@testing-library/react';
+import { useAppDispatch } from '../../utils/hooks';
 import EmployeeForm from './index';
 
+jest.mock('../../utils/hooks');
+
 describe('Employee form test suites', () => {
+  beforeEach(() => {
+    useAppDispatch.mockImplementation(() => jest.fn());
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('Should render first name input with its label', () => {
     render(<EmployeeForm />);
     const element = 'First Name';

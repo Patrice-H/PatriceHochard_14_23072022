@@ -1,8 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { useAppDispatch } from '../../utils/hooks';
 import Home from './index';
 
+jest.mock('../../utils/hooks');
+
 describe('Home page test suites', () => {
+  beforeEach(() => {
+    useAppDispatch.mockImplementation(() => jest.fn());
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('Should render home page title', () => {
     render(
       <MemoryRouter>
