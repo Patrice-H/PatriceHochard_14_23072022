@@ -1,9 +1,13 @@
+import { useAppDispatch } from '../../utils/hooks';
+import { addEmployee } from '../../redux/employeesSlice';
 import DateInput from '../DateInput';
 import TextInput from '../TextInput';
 import AddressFieldset from '../AddressFieldset';
 import SelectDropDown from '../SelectDropDown';
 
 const EmployeeForm = () => {
+  const dispatch = useAppDispatch();
+
   const saveEmployee = (e) => {
     e.preventDefault();
     const firstName = document.getElementById('first-name');
@@ -15,6 +19,7 @@ const EmployeeForm = () => {
     const city = document.getElementById('city');
     const state = document.getElementById('state');
     const zipCode = document.getElementById('zip-code');
+    const modal = document.getElementById('modal');
 
     const employees = JSON.parse(localStorage.getItem('employees')) || [];
     const employee = {
@@ -30,6 +35,8 @@ const EmployeeForm = () => {
     };
     employees.push(employee);
     localStorage.setItem('employees', JSON.stringify(employees));
+    dispatch(addEmployee(employee));
+    modal.classList.remove('hidden');
   };
 
   return (
