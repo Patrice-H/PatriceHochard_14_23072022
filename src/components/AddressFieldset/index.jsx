@@ -1,15 +1,14 @@
-import TextInput from '../TextInput';
 import SelectDropDown from '../SelectDropDown';
-import NumberInput from '../NumberInput';
+import InputBlock from '../InputBlock';
 
 const AddressFieldset = () => {
   return (
     <fieldset className="address">
       <legend>Address</legend>
-      <TextInput labelContent="Street" />
-      <TextInput labelContent="City" />
+      <InputBlock labelContent="Street" elementType="text" />
+      <InputBlock labelContent="City" elementType="text" />
       <SelectDropDown labelContent="State" />
-      <NumberInput labelContent="Zip Code" />
+      <InputBlock labelContent="Zip Code" elementType="number" />
     </fieldset>
   );
 };

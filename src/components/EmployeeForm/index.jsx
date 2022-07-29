@@ -1,7 +1,6 @@
 import { useAppDispatch } from '../../utils/hooks';
 import { addEmployee } from '../../redux/employeesSlice';
-import DateInput from '../DateInput';
-import TextInput from '../TextInput';
+import InputBlock from '../InputBlock';
 import AddressFieldset from '../AddressFieldset';
 import SelectDropDown from '../SelectDropDown';
 
@@ -41,10 +40,10 @@ const EmployeeForm = () => {
 
   return (
     <form action="#">
-      <TextInput labelContent="First Name" />
-      <TextInput labelContent="Last Name" />
-      <DateInput labelContent="Date of Birth" />
-      <DateInput labelContent="Start Date" />
+      <InputBlock labelContent="First Name" elementType="text" />
+      <InputBlock labelContent="Last Name" elementType="text" />
+      <InputBlock labelContent="Date of Birth" elementType="date" />
+      <InputBlock labelContent="Start Date" elementType="date" />
       <AddressFieldset />
       <SelectDropDown labelContent="Department" />
       <button onClick={saveEmployee}>Save</button>
