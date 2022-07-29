@@ -18,10 +18,15 @@ const Home = () => {
         <h2>Create Employee</h2>
         <EmployeeForm />
       </div>
-      <div id="modal" className="hidden">
+      <div id="modal" data-testid="modal" className="hidden">
         <div id="confirmation">
           <p>Employee Created!</p>
-          <Link to="#" id="close-modal-btn" onClick={hideModal}>
+          <Link
+            to="#"
+            id="close-modal-btn"
+            data-testid="close-modal-btn"
+            onClick={hideModal}
+          >
             <img src={closeModalBtn} alt="Close Modal" />
           </Link>
         </div>
