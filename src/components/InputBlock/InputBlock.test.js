@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import InputBlock from './index';
 
-describe('Input type number test suites', () => {
+describe('Input any type test suites', () => {
   it('Should render a label with the expected text', () => {
     const labelContent = 'Component Test';
     render(<InputBlock labelContent={labelContent} elementType="text" />);
