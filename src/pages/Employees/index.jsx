@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import EmployeesTable from '../../components/EmployeesTable';
+import TableDisplayOptions from '../../components/TableDisplayOptions';
 
 const Employees = () => {
   return (
@@ -7,6 +9,8 @@ const Employees = () => {
         <h1>Current Employees</h1>
       </header>
       <div className="container">
+        <TableDisplayOptions />
+        <EmployeesTable />
         <Link to="/">Home</Link>
       </div>
     </>
