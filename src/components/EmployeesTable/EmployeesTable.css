@@ -1,0 +1,23 @@
+#employees-table {
+  width: 80%;
+  margin-top: 20px;
+}
+#employees-table table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+#employees-table tbody {
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+}
+#employees-table td {
+  padding: 0 10px;
+}
+#no-data {
+  text-align: center;
+  line-height: 36px;
+}
+.darkline {
+  background-color: #f9f9f9;
+}
