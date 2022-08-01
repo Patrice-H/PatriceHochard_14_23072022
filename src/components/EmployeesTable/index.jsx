@@ -1,4 +1,5 @@
 import { useAppSelector } from '../../utils/hooks';
+import SortButton from '../SortButton';
 import './EmployeesTable.css';
 
 const EmployeesTable = () => {
@@ -28,7 +29,10 @@ const EmployeesTable = () => {
           <tr>
             {tableHeaders.map((header) => (
               <th key={formatId(header)}>
-                <span>{header}</span>
+                <div className="th">
+                  <span>{header}</span>
+                  <SortButton elementType={formatId(header)} />
+                </div>
               </th>
             ))}
           </tr>

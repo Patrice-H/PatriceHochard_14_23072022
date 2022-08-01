@@ -7,6 +7,15 @@
   table-layout: auto;
   border-collapse: collapse;
 }
+#employees-table div.th {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
 #employees-table tbody {
   border-top: solid black 1px;
   border-bottom: solid black 1px;
