@@ -12,8 +12,8 @@ const SortButton = ({ elementType }) => {
   const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
   const dispatch = useAppDispatch();
 
+  /* istanbul ignore next */
   const setSortedList = () => {
-    console.log(elementType);
     let newOrder;
     if (sortedBy !== elementType) {
       dispatch(setOrderBy('ascending'));
