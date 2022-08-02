@@ -20,7 +20,6 @@ const EmployeeForm = () => {
     const zipCode = document.getElementById('zip-code');
     const modal = document.getElementById('modal');
 
-    const employees = JSON.parse(localStorage.getItem('employees')) || [];
     const employee = {
       firstName: firstName.value,
       lastName: lastName.value,
@@ -32,8 +31,7 @@ const EmployeeForm = () => {
       state: state.value,
       zipCode: zipCode.value,
     };
-    employees.push(employee);
-    localStorage.setItem('employees', JSON.stringify(employees));
+
     dispatch(addEmployee(employee));
     modal.classList.remove('hidden');
   };

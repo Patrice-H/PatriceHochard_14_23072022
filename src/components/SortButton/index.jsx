@@ -30,7 +30,6 @@ const SortButton = ({ elementType }) => {
     }
     const newList = sortedList([...employeesList], elementType, newOrder);
     dispatch(setList(newList));
-    localStorage.setItem('employees', JSON.stringify(newList));
   };
 
   const getImgSrc = () => {
