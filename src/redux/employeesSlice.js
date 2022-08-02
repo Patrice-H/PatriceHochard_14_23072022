@@ -1,15 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-let employees;
-
-if (localStorage.getItem('employees') === null) {
-  employees = [];
-} else {
-  employees = JSON.parse(localStorage.getItem('employees'));
-}
-
 const initialState = {
-  list: employees,
+  list: [],
 };
 
 export const employeesSlice = createSlice({
