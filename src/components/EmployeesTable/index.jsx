@@ -6,7 +6,7 @@ const EmployeesTable = () => {
   const employeesList = useAppSelector((state) => state.employees.list);
   const entries = useAppSelector((state) => state.displayOptions.tableLength);
 
-  const pageNumber = 1;
+  const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
   const startIndex = entries * (pageNumber - 1);
   const employees = [...employeesList].splice(startIndex, entries);
 
