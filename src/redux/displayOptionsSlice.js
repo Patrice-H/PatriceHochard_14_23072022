@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   sortBy: 'first-name',
   orderBy: 'ascending',
+  tableLength: 10,
 };
 
 export const displayOptionsSlice = createSlice({
@@ -15,9 +16,13 @@ export const displayOptionsSlice = createSlice({
     setOrderBy: (state, action) => {
       state.orderBy = action.payload;
     },
+    setTableLength: (state, action) => {
+      state.tableLength = action.payload;
+    },
   },
 });
 
-export const { setSortBy, setOrderBy } = displayOptionsSlice.actions;
+export const { setSortBy, setOrderBy, setTableLength } =
+  displayOptionsSlice.actions;
 
 export default displayOptionsSlice.reducer;
