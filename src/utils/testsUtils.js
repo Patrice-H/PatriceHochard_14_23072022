@@ -5,6 +5,8 @@ const state = {
   displayOptions: {
     sortBy: '',
     orderBy: '',
+    tableLength: 10,
+    pageNumber: 1,
   },
 };
 
