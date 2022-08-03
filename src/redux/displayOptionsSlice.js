@@ -4,6 +4,7 @@ const initialState = {
   sortBy: 'first-name',
   orderBy: 'ascending',
   tableLength: 10,
+  pageNumber: 1,
 };
 
 export const displayOptionsSlice = createSlice({
@@ -19,10 +20,13 @@ export const displayOptionsSlice = createSlice({
     setTableLength: (state, action) => {
       state.tableLength = action.payload;
     },
+    setPageNumber: (state, action) => {
+      state.pageNumber = action.payload;
+    },
   },
 });
 
-export const { setSortBy, setOrderBy, setTableLength } =
+export const { setSortBy, setOrderBy, setTableLength, setPageNumber } =
   displayOptionsSlice.actions;
 
 export default displayOptionsSlice.reducer;
