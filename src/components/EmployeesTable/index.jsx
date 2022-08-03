@@ -3,7 +3,12 @@ import SortButton from '../SortButton';
 import './EmployeesTable.css';
 
 const EmployeesTable = () => {
-  const employees = useAppSelector((state) => state.employees.list);
+  const employeesList = useAppSelector((state) => state.employees.list);
+  const entries = useAppSelector((state) => state.displayOptions.tableLength);
+
+  const pageNumber = 1;
+  const startIndex = entries * (pageNumber - 1);
+  const employees = [...employeesList].splice(startIndex, entries);
 
   const tableHeaders = [
     'First Name',
