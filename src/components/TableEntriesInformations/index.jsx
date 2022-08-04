@@ -6,7 +6,7 @@ const TableEntriesInformations = () => {
   const tableLength = useAppSelector(
     (state) => state.displayOptions.tableLength
   );
-  const pageNumber = 1;
+  const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
 
   const getStartIndex = () => {
     if (totalLength === 0) {
