@@ -1,14 +1,18 @@
 import { useAppSelector } from '../../utils/hooks';
+import { sortedList } from '../../utils/sortedList';
 import SortButton from '../SortButton';
 import './EmployeesTable.css';
 
 const EmployeesTable = () => {
   const employeesList = useAppSelector((state) => state.employees.list);
   const entries = useAppSelector((state) => state.displayOptions.tableLength);
-
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
+  const sortedBy = useAppSelector((state) => state.displayOptions.sortBy);
+  const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
+
+  const newList = sortedList([...employeesList], sortedBy, orderedBy);
   const startIndex = entries * (pageNumber - 1);
-  const employees = [...employeesList].splice(startIndex, entries);
+  const employees = newList.splice(startIndex, entries);
 
   const tableHeaders = [
     'First Name',
