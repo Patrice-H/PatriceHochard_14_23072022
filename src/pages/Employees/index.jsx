@@ -9,7 +9,7 @@ const Employees = () => {
       <header className="page-title">
         <h1>Current Employees</h1>
       </header>
-      <div className="container">
+      <div id="employees-page" className="container">
         <TableDisplayOptions />
         <EmployeesTable />
         <BottomTableDisplayOptions />
