@@ -1,40 +1,5 @@
 import { sortedList } from './sortedList';
-
-const employeesList = [
-  {
-    firstName: 'Mickey',
-    lastName: 'Mouse',
-    dateOfBirth: '1990-03-23',
-    startDate: '2019-06-19',
-    department: 'Engineering',
-    street: '550 University St',
-    city: 'East Lansing',
-    state: 'MI',
-    zipCode: 48824,
-  },
-  {
-    firstName: 'Betty',
-    lastName: 'Boop',
-    dateOfBirth: '1980-06-01',
-    startDate: '2020-10-25',
-    department: 'Human Resources',
-    street: '1600 Amphitheatre Pky',
-    city: 'Moutain View',
-    state: 'CA',
-    zipCode: 92457,
-  },
-  {
-    firstName: 'Donald',
-    lastName: 'Duck',
-    dateOfBirth: '1979-05-20',
-    startDate: '2014-02-17',
-    department: 'Legal',
-    street: '2358 E Mount Vermon St',
-    city: 'Wichita',
-    state: 'KS',
-    zipCode: 66045,
-  },
-];
+import { employeesList } from '../data/dataTest';
 
 describe('Sorted list unit tests suite', () => {
   it('Should sort list by first name ascending', () => {
