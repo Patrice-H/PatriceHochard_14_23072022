@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { useAppSelector, useAppDispatch } from '../../utils/hooks';
-import { mockedAppSelector } from '../../utils/testsUtils';
+import { useAppSelector, useAppDispatch } from '../../../utils/hooks';
+import { mockedAppSelector } from '../../../utils/testsUtils';
 import SortButton from './index';
 
-jest.mock('../../utils/hooks');
+jest.mock('../../../utils/hooks');
 
 describe('Sort button tests suite', () => {
   beforeEach(() => {

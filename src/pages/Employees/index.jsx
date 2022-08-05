@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import BottomTableDisplayOptions from '../../components/BottomTableDisplayOptions';
+import BottomTableDisplayOptions from '../../components/table-components/BottomTableDisplayOptions';
 import EmployeesTable from '../../components/EmployeesTable';
-import TableDisplayOptions from '../../components/TableDisplayOptions';
+import TableDisplayOptions from '../../components/table-components/TableDisplayOptions';
 
 const Employees = () => {
   return (

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import TableLength from './index';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+import { store } from '../../../redux/store';
 
 describe('Table length suite tests', () => {
   it('Should render a label with the expected text', () => {

@@ -1,4 +1,4 @@
-import InputBlock from '../InputBlock';
+import InputBlock from '../../form-components/InputBlock';
 import './TableFilter.css';
 
 const TableFilter = () => {

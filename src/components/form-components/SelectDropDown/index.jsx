@@ -1,5 +1,5 @@
-import { statesList } from '../../data/statesList';
-import { departmentsList } from '../../data/departmentsList';
+import { statesList } from '../../../data/statesList';
+import { departmentsList } from '../../../data/departmentsList';
 
 const SelectDropDown = ({ labelContent }) => {
   const list = labelContent === 'State' ? statesList : departmentsList;

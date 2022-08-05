@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../utils/hooks';
 import { sortedList } from '../../utils/sortedList';
-import SortButton from '../SortButton';
+import SortButton from '../table-components/SortButton';
 import './EmployeesTable.css';
 
 const EmployeesTable = () => {

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
-import { useAppDispatch } from '../../utils/hooks';
+import { useAppDispatch } from '../../../utils/hooks';
 import TableDisplayOptions from './index';
 
-jest.mock('../../utils/hooks');
+jest.mock('../../../utils/hooks');
 
 describe('Table display options tests suite', () => {
   beforeEach(() => {

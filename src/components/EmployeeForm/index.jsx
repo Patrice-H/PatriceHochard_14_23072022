@@ -1,8 +1,8 @@
 import { useAppDispatch } from '../../utils/hooks';
 import { addEmployee } from '../../redux/employeesSlice';
-import InputBlock from '../InputBlock';
-import AddressFieldset from '../AddressFieldset';
-import SelectDropDown from '../SelectDropDown';
+import InputBlock from '../form-components/InputBlock';
+import AddressFieldset from '../form-components/AddressFieldset';
+import SelectDropDown from '../form-components/SelectDropDown';
 
 const EmployeeForm = () => {
   const dispatch = useAppDispatch();

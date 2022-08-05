@@ -1,8 +1,8 @@
-import { useAppSelector, useAppDispatch } from '../../utils/hooks';
-import { setSortBy, setOrderBy } from '../../redux/displayOptionsSlice';
-import sortBtn from '../../assets/sort-btn.png';
-import sortAscBtn from '../../assets/sort-asc-btn.png';
-import sortDescBtn from '../../assets/sort-desc-btn.png';
+import { useAppSelector, useAppDispatch } from '../../../utils/hooks';
+import { setSortBy, setOrderBy } from '../../../redux/displayOptionsSlice';
+import sortBtn from '../../../assets/sort-btn.png';
+import sortAscBtn from '../../../assets/sort-asc-btn.png';
+import sortDescBtn from '../../../assets/sort-desc-btn.png';
 
 const SortButton = ({ elementType }) => {
   const sortedBy = useAppSelector((state) => state.displayOptions.sortBy);

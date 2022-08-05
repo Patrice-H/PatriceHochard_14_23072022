@@ -1,5 +1,8 @@
-import { useAppDispatch, useAppSelector } from '../../utils/hooks';
-import { setTableLength, setPageNumber } from '../../redux/displayOptionsSlice';
+import { useAppDispatch, useAppSelector } from '../../../utils/hooks';
+import {
+  setTableLength,
+  setPageNumber,
+} from '../../../redux/displayOptionsSlice';
 import './TableLength.css';
 
 const TableLength = () => {

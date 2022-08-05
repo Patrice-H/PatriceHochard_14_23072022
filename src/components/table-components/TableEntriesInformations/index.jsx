@@ -1,4 +1,4 @@
-import { useAppSelector } from '../../utils/hooks';
+import { useAppSelector } from '../../../utils/hooks';
 import './TableEntriesInformations.css';
 
 const TableEntriesInformations = () => {

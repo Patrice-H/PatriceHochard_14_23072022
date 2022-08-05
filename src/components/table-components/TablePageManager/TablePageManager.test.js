@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import TablePageManager from './index';
 import { Provider } from 'react-redux';
-import { store } from '../../redux/store';
+import { store } from '../../../redux/store';
 
 describe('Table page manager tests suite', () => {
   it('Should render navigation buttons', () => {

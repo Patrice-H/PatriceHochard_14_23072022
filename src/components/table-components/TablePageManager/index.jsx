@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../utils/hooks';
-import { setPageNumber } from '../../redux/displayOptionsSlice';
+import { useAppDispatch, useAppSelector } from '../../../utils/hooks';
+import { setPageNumber } from '../../../redux/displayOptionsSlice';
 import './TablePageManager.css';
 
 const TablePageManager = () => {
