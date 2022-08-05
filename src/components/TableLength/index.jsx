@@ -3,7 +3,12 @@ import { setTableLength, setPageNumber } from '../../redux/displayOptionsSlice';
 import './TableLength.css';
 
 const TableLength = () => {
-  const options = [10, 25, 50, 100];
+  const options = [
+    { number: 10 },
+    { number: 25 },
+    { number: 50 },
+    { number: 100 },
+  ];
   const entries = useAppSelector((state) => state.displayOptions.tableLength);
   const dispatch = useAppDispatch();
 
@@ -24,8 +29,8 @@ const TableLength = () => {
           onChange={defineTableLength}
         >
           {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
+            <option key={option.number} value={option.number}>
+              {option.number}
             </option>
           ))}
         </select>

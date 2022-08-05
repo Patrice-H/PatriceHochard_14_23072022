@@ -11,12 +11,15 @@ const TablePageManager = () => {
   );
   const pageMax = Math.ceil(listLength / tableLength);
 
+  /* istanbul ignore next */
   const incrementPage = () => {
     const nextPage = pageNumber + 1;
     if (pageNumber < pageMax) {
       dispatch(setPageNumber(nextPage));
     }
   };
+
+  /* istanbul ignore next */
   const decrementPage = () => {
     const previousPage = pageNumber - 1;
     if (pageNumber > 1) {
@@ -32,7 +35,11 @@ const TablePageManager = () => {
       >
         Previous
       </span>
-      <span id="page-indicator" className={listLength > 0 ? null : 'hidden'}>
+      <span
+        id="page-indicator"
+        data-testid="page-indicator"
+        className={listLength > 0 ? null : 'hidden'}
+      >
         {pageNumber}
       </span>
       <span

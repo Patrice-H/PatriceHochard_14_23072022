@@ -162,4 +162,11 @@ describe('Sorted list unit tests suite', () => {
     expect(newList[1].zipCode).toBe(66045);
     expect(newList[2].zipCode).toBe(48824);
   });
+
+  it('Should sort list by first name ascending when sort key is define by default', () => {
+    const newList = sortedList(employeesList, '', 'ascending');
+    expect(newList[0].firstName).toBe('Betty');
+    expect(newList[1].firstName).toBe('Donald');
+    expect(newList[2].firstName).toBe('Mickey');
+  });
 });
