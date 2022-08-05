@@ -1,4 +1,4 @@
-export const sortedList = (list, sortKey, orderKey) => {
+export const sortList = (list, sortKey, orderKey) => {
   const newlist = list.sort((a, b) => {
     let itemA, itemB;
     switch (sortKey) {

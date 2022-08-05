@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../utils/hooks';
-import { sortedList } from '../../utils/sortedList';
+import { sortList } from '../../utils/functions';
 import SortButton from '../table-components/SortButton';
 import './EmployeesTable.css';
 
@@ -10,7 +10,7 @@ const EmployeesTable = () => {
   const sortedBy = useAppSelector((state) => state.displayOptions.sortBy);
   const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
 
-  const newList = sortedList([...employeesList], sortedBy, orderedBy);
+  const newList = sortList([...employeesList], sortedBy, orderedBy);
   const startIndex = entries * (pageNumber - 1);
   const employees = newList.splice(startIndex, entries);
 
