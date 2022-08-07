@@ -28,11 +28,11 @@ const TableEntriesInformations = () => {
   return (
     <div id="table-entries-informations">
       <span>Showing </span>
-      <span>{getStartIndex()}</span>
+      <span data-testid="start-index">{getStartIndex()}</span>
       <span> to </span>
-      <span>{getEndIndex()}</span>
+      <span data-testid="end-index">{getEndIndex()}</span>
       <span> of </span>
-      <span>{totalLength}</span>
+      <span data-testid="total-index">{totalLength}</span>
       <span> entries</span>
     </div>
   );
