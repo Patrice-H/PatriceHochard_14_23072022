@@ -11,7 +11,6 @@ const TablePageManager = () => {
   );
   const pageMax = Math.ceil(listLength / tableLength);
 
-  /* istanbul ignore next */
   const incrementPage = () => {
     const nextPage = pageNumber + 1;
     if (pageNumber < pageMax) {
@@ -19,7 +18,6 @@ const TablePageManager = () => {
     }
   };
 
-  /* istanbul ignore next */
   const decrementPage = () => {
     const previousPage = pageNumber - 1;
     if (pageNumber > 1) {
