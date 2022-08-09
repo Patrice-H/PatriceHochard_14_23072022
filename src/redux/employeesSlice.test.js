@@ -20,7 +20,7 @@ describe('Employees slice tests suite', () => {
           street: '550 University St',
           city: 'East Lansing',
           state: 'MI',
-          zipCode: 48824,
+          zipCode: '48824',
         },
       ],
     });

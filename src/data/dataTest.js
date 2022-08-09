@@ -8,7 +8,7 @@ export const employeesList = [
     street: '550 University St',
     city: 'East Lansing',
     state: 'MI',
-    zipCode: 48824,
+    zipCode: '48824',
   },
   {
     firstName: 'Betty',
@@ -19,7 +19,7 @@ export const employeesList = [
     street: '1600 Amphitheatre Pky',
     city: 'Moutain View',
     state: 'CA',
-    zipCode: 92457,
+    zipCode: '92457',
   },
   {
     firstName: 'Donald',
@@ -30,6 +30,6 @@ export const employeesList = [
     street: '2358 E Mount Vermon St',
     city: 'Wichita',
     state: 'KS',
-    zipCode: 66045,
+    zipCode: '66045',
   },
 ];
