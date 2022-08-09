@@ -1,5 +1,5 @@
 export const sortList = (list, sortKey, orderKey) => {
-  const newlist = list.sort((a, b) => {
+  const newlist = [...list].sort((a, b) => {
     let itemA, itemB;
     switch (sortKey) {
       case 'first-name':
@@ -50,4 +50,51 @@ export const sortList = (list, sortKey, orderKey) => {
   });
 
   return newlist;
+};
+
+export const filterList = (list, text) => {
+  if (text === null) {
+    return list;
+  }
+  let newList = [];
+  newList.push(
+    ...list.filter((employee) =>
+      employee.firstName.toLowerCase().includes(text.toLowerCase())
+    )
+  );
+  newList.push(
+    ...list.filter((employee) =>
+      employee.lastName.toLowerCase().includes(text.toLowerCase())
+    )
+  );
+  newList.push(...list.filter((employee) => employee.startDate.includes(text)));
+  newList.push(
+    ...list.filter((employee) =>
+      employee.department.toLowerCase().includes(text.toLowerCase())
+    )
+  );
+  newList.push(
+    ...list.filter((employee) => employee.dateOfBirth.includes(text))
+  );
+  newList.push(
+    ...list.filter((employee) =>
+      employee.street.toLowerCase().includes(text.toLowerCase())
+    )
+  );
+  newList.push(
+    ...list.filter((employee) =>
+      employee.city.toLowerCase().includes(text.toLowerCase())
+    )
+  );
+  newList.push(
+    ...list.filter((employee) =>
+      employee.state.toLowerCase().includes(text.toLowerCase())
+    )
+  );
+  newList.push(...list.filter((employee) => employee.zipCode.includes(text)));
+  if (newList.length === 0) {
+    return list;
+  }
+
+  return Array.from(new Set(newList));
 };

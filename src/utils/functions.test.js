@@ -1,4 +1,4 @@
-import { sortList } from './functions';
+import { sortList, filterList } from './functions';
 import { employeesList } from '../data/dataTest';
 
 describe('SortList function unit tests suite', () => {
@@ -116,16 +116,16 @@ describe('SortList function unit tests suite', () => {
 
   it('Should sort list by zip code ascending', () => {
     const newList = sortList(employeesList, 'zip-code', 'ascending');
-    expect(newList[0].zipCode).toBe(48824);
-    expect(newList[1].zipCode).toBe(66045);
-    expect(newList[2].zipCode).toBe(92457);
+    expect(newList[0].zipCode).toBe('48824');
+    expect(newList[1].zipCode).toBe('66045');
+    expect(newList[2].zipCode).toBe('92457');
   });
 
   it('Should sort list by zip code descending', () => {
     const newList = sortList(employeesList, 'zip-code', 'descending');
-    expect(newList[0].zipCode).toBe(92457);
-    expect(newList[1].zipCode).toBe(66045);
-    expect(newList[2].zipCode).toBe(48824);
+    expect(newList[0].zipCode).toBe('92457');
+    expect(newList[1].zipCode).toBe('66045');
+    expect(newList[2].zipCode).toBe('48824');
   });
 
   it('Should sort list by first name ascending when sort key is define by default', () => {
@@ -133,5 +133,31 @@ describe('SortList function unit tests suite', () => {
     expect(newList[0].firstName).toBe('Betty');
     expect(newList[1].firstName).toBe('Donald');
     expect(newList[2].firstName).toBe('Mickey');
+  });
+});
+
+describe('FilterList function unit tests suite', () => {
+  it('Should return the entire list when filter key is null', () => {
+    const newList = filterList(employeesList, null);
+    expect(newList).toBe(employeesList);
+  });
+
+  it('Should return the entire list when filter Key is not found', () => {
+    const newList = filterList(employeesList, 'test');
+    expect(newList).toBe(employeesList);
+  });
+
+  it('Should return the filtered list including the filter key', () => {
+    // Case 1: filter key is a string in lower case
+    const newList1 = filterList(employeesList, 'mick');
+    expect(newList1).toStrictEqual([employeesList[0]]);
+
+    // Case 2: filter key is a string in upper case
+    const newList2 = filterList(employeesList, 'Mick');
+    expect(newList2).toStrictEqual([employeesList[0]]);
+
+    //Case 3: filter key is a part of date or a number in text format
+    const newList3 = filterList(employeesList, '1990');
+    expect(newList3).toStrictEqual([employeesList[0]]);
   });
 });
