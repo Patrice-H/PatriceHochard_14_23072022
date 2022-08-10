@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../utils/hooks';
-import { sortList } from '../../utils/functions';
+import { applyUserOptions } from '../../utils/functions';
 import SortButton from '../table-components/SortButton';
 import './EmployeesTable.css';
 
@@ -9,10 +9,17 @@ const EmployeesTable = () => {
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
   const sortedBy = useAppSelector((state) => state.displayOptions.sortBy);
   const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
+  // prettier-ignore
+  const filtredBy = useAppSelector((state) => state.displayOptions.searchFilter);
 
-  const newList = sortList([...employeesList], sortedBy, orderedBy);
+  const displayedList = applyUserOptions(
+    employeesList,
+    filtredBy,
+    sortedBy,
+    orderedBy
+  );
   const startIndex = entries * (pageNumber - 1);
-  const employees = newList.splice(startIndex, entries);
+  const employees = displayedList.splice(startIndex, entries);
 
   const tableHeaders = [
     'First Name',
