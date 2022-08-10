@@ -13,11 +13,11 @@ const TableFilter = () => {
 
   const searchText = () => {
     const text = document.getElementById('search-filter').value;
-    if (text.length >= 3) {
+    if (text.length >= 2) {
       dispatch(setSearchFilter(text));
       dispatch(setPageNumber(1));
     }
-    if (text.length < 3 && searchedText !== null) {
+    if (text.length < 2 && searchedText !== null) {
       dispatch(setSearchFilter(null));
       dispatch(setPageNumber(1));
     }
