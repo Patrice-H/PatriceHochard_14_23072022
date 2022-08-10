@@ -1,14 +1,27 @@
 import { useAppDispatch, useAppSelector } from '../../../utils/hooks';
 import { setPageNumber } from '../../../redux/displayOptionsSlice';
+import { applyUserOptions } from '../../../utils/functions';
 import './TablePageManager.css';
 
 const TablePageManager = () => {
   const dispatch = useAppDispatch();
+  const employeesList = useAppSelector((state) => state.employees.list);
+  // prettier-ignore
+  const tableLength = useAppSelector((state) => state.displayOptions.tableLength);
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
-  const listLength = useAppSelector((state) => state.employees.list).length;
-  const tableLength = useAppSelector(
-    (state) => state.displayOptions.tableLength
+  const sortedBy = useAppSelector((state) => state.displayOptions.sortBy);
+  const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
+  // prettier-ignore
+  const filtredBy = useAppSelector((state) => state.displayOptions.searchFilter);
+
+  const displayedList = applyUserOptions(
+    employeesList,
+    filtredBy,
+    sortedBy,
+    orderedBy
   );
+
+  const listLength = displayedList.length;
   const pageMax = Math.ceil(listLength / tableLength);
 
   const incrementPage = () => {
