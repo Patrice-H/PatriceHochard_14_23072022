@@ -1,12 +1,24 @@
 import { useAppSelector } from '../../../utils/hooks';
+import { applyUserOptions } from '../../../utils/functions';
 import './TableEntriesInformations.css';
 
 const TableEntriesInformations = () => {
-  const totalLength = useAppSelector((state) => state.employees.list).length;
-  const tableLength = useAppSelector(
-    (state) => state.displayOptions.tableLength
-  );
+  const employeesList = useAppSelector((state) => state.employees.list);
+  // prettier-ignore
+  const tableLength = useAppSelector((state) => state.displayOptions.tableLength);
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
+  const sortedBy = useAppSelector((state) => state.displayOptions.sortBy);
+  const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
+  // prettier-ignore
+  const filtredBy = useAppSelector((state) => state.displayOptions.searchFilter);
+
+  const displayedList = applyUserOptions(
+    employeesList,
+    filtredBy,
+    sortedBy,
+    orderedBy
+  );
+  const totalLength = displayedList.length;
 
   const getStartIndex = () => {
     if (totalLength === 0) {

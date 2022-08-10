@@ -5,23 +5,25 @@ import TableEntriesInformations from './index';
 
 jest.mock('../../../utils/hooks');
 
+let state = {
+  employees: {
+    list: employeesList,
+  },
+  displayOptions: {
+    sortBy: '',
+    orderBy: '',
+    tableLength: 2,
+    pageNumber: 1,
+    searchFilter: null,
+  },
+};
+
 describe('Table entries informations tests suite', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
   it('Should render all information texts', () => {
-    const state = {
-      employees: {
-        list: employeesList,
-      },
-      displayOptions: {
-        sortBy: '',
-        orderBy: '',
-        tableLength: 2,
-        pageNumber: 1,
-      },
-    };
     useAppSelector.mockImplementation((f) => f(state));
     render(<TableEntriesInformations />);
     const showing = screen.getByText('Showing');
@@ -35,17 +37,6 @@ describe('Table entries informations tests suite', () => {
   });
 
   it('Should render rigth number of entries on page 1', () => {
-    const state = {
-      employees: {
-        list: employeesList,
-      },
-      displayOptions: {
-        sortBy: '',
-        orderBy: '',
-        tableLength: 2,
-        pageNumber: 1,
-      },
-    };
     useAppSelector.mockImplementation((f) => f(state));
     render(<TableEntriesInformations />);
     const startIndex = screen.getByTestId('start-index');
@@ -57,17 +48,7 @@ describe('Table entries informations tests suite', () => {
   });
 
   it('Should render rigth number of entries on page 2', () => {
-    const state = {
-      employees: {
-        list: employeesList,
-      },
-      displayOptions: {
-        sortBy: '',
-        orderBy: '',
-        tableLength: 2,
-        pageNumber: 2,
-      },
-    };
+    state.displayOptions.pageNumber = 2;
     useAppSelector.mockImplementation((f) => f(state));
     render(<TableEntriesInformations />);
     const startIndex = screen.getByTestId('start-index');
