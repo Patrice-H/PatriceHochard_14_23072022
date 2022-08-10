@@ -98,3 +98,10 @@ export const filterList = (list, text) => {
 
   return Array.from(new Set(newList));
 };
+
+export const applyUserOptions = (list, filterKey, sortKey, orderKey) => {
+  const filtredList = filterList(list, filterKey);
+  const sortedList = sortList(filtredList, sortKey, orderKey);
+
+  return sortedList;
+};
