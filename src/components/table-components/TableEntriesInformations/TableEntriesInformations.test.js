@@ -58,4 +58,17 @@ describe('Table entries informations tests suite', () => {
     expect(endIndex.innerHTML).toEqual('3');
     expect(totalIndex.innerHTML).toEqual('3');
   });
+
+  it('Should render no entries when there are not data', () => {
+    state.employees.list = [];
+    state.displayOptions.pageNumber = 1;
+    useAppSelector.mockImplementation((f) => f(state));
+    render(<TableEntriesInformations />);
+    const startIndex = screen.getByTestId('start-index');
+    const endIndex = screen.getByTestId('end-index');
+    const totalIndex = screen.getByTestId('total-index');
+    expect(startIndex.innerHTML).toEqual('0');
+    expect(endIndex.innerHTML).toEqual('0');
+    expect(totalIndex.innerHTML).toEqual('0');
+  });
 });
