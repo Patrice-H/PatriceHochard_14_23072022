@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import EmployeeForm from '../../components/EmployeeForm';
+import EmployeesForm from '../../components/EmployeesForm';
 import closeModalBtn from '../../assets/close-btn.png';
 
 const Home = () => {
   const hideModal = () => {
     const modal = document.getElementById('modal');
     modal.classList.add('hidden');
+    document.location.reload();
   };
 
   return (
@@ -16,7 +17,7 @@ const Home = () => {
       <div className="container">
         <Link to="/employees">View Current Employees</Link>
         <h2>Create Employee</h2>
-        <EmployeeForm />
+        <EmployeesForm />
       </div>
       <div id="modal" data-testid="modal" className="hidden">
         <div id="confirmation">
