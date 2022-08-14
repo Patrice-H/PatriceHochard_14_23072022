@@ -56,6 +56,7 @@ export const filterList = (list, text) => {
   if (text === null) {
     return list;
   }
+
   let newList = [];
   newList.push(
     ...list.filter((employee) =>
@@ -91,7 +92,10 @@ export const filterList = (list, text) => {
       employee.state.toLowerCase().includes(text.toLowerCase())
     )
   );
-  newList.push(...list.filter((employee) => employee.zipCode.includes(text)));
+  newList.push(
+    ...list.filter((employee) => employee.zipCode.toString().includes(text))
+  );
+
   if (newList.length === 0) {
     return list;
   }
