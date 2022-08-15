@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { useAppDispatch } from '../../utils/hooks';
 import Home from './index';
@@ -54,30 +54,38 @@ describe('Home page test suites', () => {
     expect(expectedSubtitle).toBeInTheDocument();
   });
 
-  it('Should open a modal when user add an employee', () => {
+  it('Should open a modal when user add an employee', async () => {
     render(
       <MemoryRouter>
         <Home />
       </MemoryRouter>
     );
+    const firstNameInput = screen.getByLabelText('First Name');
+    const lastNameInput = screen.getByLabelText('Last Name');
+    const dateOfBirthInput = screen.getByLabelText('Date of Birth');
+    const startDateInput = screen.getByLabelText('Start Date');
+    const streetInput = screen.getByLabelText('Street');
+    const cityInput = screen.getByLabelText('City');
+    const ZipCodeInput = screen.getByLabelText('Zip Code');
     const modal = screen.getByTestId('modal');
     const button = screen.getByText('Save');
-    expect(modal.classList.contains('hidden')).toEqual(true);
-    fireEvent.click(button);
-    expect(modal.classList.contains('hidden')).toEqual(false);
-  });
 
-  it('Should close the modal when user click on close button', () => {
-    render(
-      <MemoryRouter>
-        <Home />
-      </MemoryRouter>
-    );
-    const modal = screen.getByTestId('modal');
-    const openButton = screen.getByText('Save');
-    fireEvent.click(openButton);
-    const closeButton = screen.getByTestId('close-modal-btn');
-    fireEvent.click(closeButton);
+    // Filling the form
+    fireEvent.change(firstNameInput, { target: { value: 'firstName' } });
+    fireEvent.change(lastNameInput, { target: { value: 'lastName' } });
+    fireEvent.change(dateOfBirthInput, { target: { value: new Date() } });
+    fireEvent.change(startDateInput, { target: { value: new Date() } });
+    fireEvent.change(streetInput, { target: { value: 'street' } });
+    fireEvent.change(cityInput, { target: { value: 'city' } });
+    fireEvent.change(ZipCodeInput, { target: { value: 99999 } });
+
+    // Test before submit form
     expect(modal.classList.contains('hidden')).toEqual(true);
+
+    // test after submit form
+    fireEvent.click(button);
+    await waitFor(() => {
+      expect(modal.classList.contains('hidden')).toEqual(false);
+    });
   });
 });
