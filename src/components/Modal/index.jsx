@@ -4,7 +4,7 @@ import closeModalBtn from '../../assets/close-btn.png';
 const hideModal = () => {
   const modal = document.getElementById('modal');
   modal.classList.add('hidden');
-  document.location.reload();
+  window.location.reload();
 };
 
 const Modal = () => {
