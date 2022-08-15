@@ -109,3 +109,15 @@ export const applyUserOptions = (list, filterKey, sortKey, orderKey) => {
 
   return sortedList;
 };
+
+export const formatDate = (date) => {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+  });
+  const day = date
+    .getDate()
+    .toLocaleString('en-US', { minimumIntegerDigits: 2 });
+
+  return `${year}-${month}-${day}`;
+};
