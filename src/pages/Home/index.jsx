@@ -1,14 +1,8 @@
 import { Link } from 'react-router-dom';
 import EmployeesForm from '../../components/EmployeesForm';
-import closeModalBtn from '../../assets/close-btn.png';
+import Modal from '../../components/Modal';
 
 const Home = () => {
-  const hideModal = () => {
-    const modal = document.getElementById('modal');
-    modal.classList.add('hidden');
-    document.location.reload();
-  };
-
   return (
     <>
       <header className="page-title">
@@ -19,19 +13,7 @@ const Home = () => {
         <h2>Create Employee</h2>
         <EmployeesForm />
       </div>
-      <div id="modal" data-testid="modal" className="hidden">
-        <div id="confirmation">
-          <p>Employee Created!</p>
-          <Link
-            to="#"
-            id="close-modal-btn"
-            data-testid="close-modal-btn"
-            onClick={hideModal}
-          >
-            <img src={closeModalBtn} alt="Close Modal" />
-          </Link>
-        </div>
-      </div>
+      <Modal />
     </>
   );
 };
