@@ -1,6 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import DatePicker from '../DatePicker';
 import { useAppDispatch } from '../../utils/hooks';
 import { addEmployee } from '../../redux/employeesSlice';
+import { formatDate } from '../../utils/functions';
 import { statesList } from '../../data/statesList';
 import { departmentsList } from '../../data/departmentsList';
 import './EmployeesForm.css';
@@ -51,6 +53,8 @@ const EmployeesForm = () => {
 
   const onSubmit = (values) => {
     const modal = document.getElementById('modal');
+    values.dateOfBirth = formatDate(values.dateOfBirth);
+    values.startDate = formatDate(values.startDate);
     console.log('Form values : ', values);
     dispatch(addEmployee(values));
     modal.classList.remove('hidden');
@@ -73,16 +77,8 @@ const EmployeesForm = () => {
           <Field type="text" id="last-name" name="lastName" />
           <ErrorMessage name="lastName" />
         </div>
-        <div className="form-control">
-          <label htmlFor="date-of-birth">Date of Birth</label>
-          <Field type="date" id="date-of-birth" name="dateOfBirth" />
-          <ErrorMessage name="dateOfBirth" />
-        </div>
-        <div className="form-control">
-          <label htmlFor="start-date">Start Date</label>
-          <Field type="date" id="start-date" name="startDate" />
-          <ErrorMessage name="startDate" />
-        </div>
+        <DatePicker label="Date of Birth" name="dateOfBirth" />
+        <DatePicker label="Start Date" name="startDate" />
         <fieldset>
           <legend>Address</legend>
           <div className="form-control">
