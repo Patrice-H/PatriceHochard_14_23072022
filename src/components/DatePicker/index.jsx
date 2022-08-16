@@ -1,6 +1,7 @@
 import DateView from 'react-datepicker';
 import { Field, ErrorMessage } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css';
+import './DatePicker.css';
 
 const DatePicker = (props) => {
   const { label, name, ...rest } = props;
