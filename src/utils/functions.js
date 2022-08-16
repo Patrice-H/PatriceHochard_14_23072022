@@ -1,3 +1,15 @@
+const formatDate = (date) => {
+  const year = date.getFullYear();
+  const month = (date.getMonth() + 1).toLocaleString('en-US', {
+    minimumIntegerDigits: 2,
+  });
+  const day = date
+    .getDate()
+    .toLocaleString('en-US', { minimumIntegerDigits: 2 });
+
+  return `${year}-${month}-${day}`;
+};
+
 export const sortList = (list, sortKey, orderKey) => {
   const newlist = [...list].sort((a, b) => {
     let itemA, itemB;
@@ -110,18 +122,6 @@ export const applyUserOptions = (list, filterKey, sortKey, orderKey) => {
   return sortedList;
 };
 
-export const formatDate = (date) => {
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toLocaleString('en-US', {
-    minimumIntegerDigits: 2,
-  });
-  const day = date
-    .getDate()
-    .toLocaleString('en-US', { minimumIntegerDigits: 2 });
-
-  return `${year}-${month}-${day}`;
-};
-
 export const formatId = (labelContent) => {
   const regex = / /g;
   const id = labelContent.replace(regex, '-').toLowerCase();
@@ -137,6 +137,23 @@ export const formatName = (labelContent) => {
   }
 
   return name;
+};
+
+export const formatZipCode = (number) => {
+  let zipCode = number.toString();
+  if (zipCode.length < 5) {
+    return '0' + zipCode;
+  }
+
+  return zipCode;
+};
+
+export const formatEmployeeData = (values) => {
+  values.dateOfBirth = formatDate(values.dateOfBirth);
+  values.startDate = formatDate(values.startDate);
+  values.zipCode = formatZipCode(values.zipCode);
+
+  return values;
 };
 
 export const validateForm = (values) => {

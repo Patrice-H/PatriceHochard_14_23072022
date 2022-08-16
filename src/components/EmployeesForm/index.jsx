@@ -4,7 +4,7 @@ import DatePicker from '../DatePicker';
 import SelectMenu from '../SelectMenu';
 import { useAppDispatch } from '../../utils/hooks';
 import { addEmployee } from '../../redux/employeesSlice';
-import { formatDate, validateForm } from '../../utils/functions';
+import { formatEmployeeData, validateForm } from '../../utils/functions';
 import './EmployeesForm.css';
 
 const initialValues = {
@@ -24,8 +24,7 @@ const EmployeesForm = () => {
 
   const onSubmit = (values) => {
     const modal = document.getElementById('modal');
-    values.dateOfBirth = formatDate(values.dateOfBirth);
-    values.startDate = formatDate(values.startDate);
+    values = formatEmployeeData(values);
     dispatch(addEmployee(values));
     modal.classList.remove('hidden');
   };
