@@ -10,6 +10,33 @@ const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
+const formatStreet = (street) => {
+  let number = '';
+  let name = '';
+  let index = 0;
+  const streetTab = street.toLowerCase().split(' ');
+  if (streetTab.length <= 1) {
+    return street;
+  }
+  if (parseInt(streetTab[0]) > 0) {
+    number = streetTab[0];
+    index++;
+  }
+  if (streetTab[1].length <= 2 && index === 1) {
+    number = number + ' ' + streetTab[1];
+    index++;
+  }
+  for (index; index < streetTab.length; index++) {
+    if (name === '') {
+      name = streetTab[index];
+    } else {
+      name = name + ' ' + streetTab[index];
+    }
+  }
+
+  return name + ' ' + number;
+};
+
 export const sortList = (list, sortKey, orderKey) => {
   const newlist = [...list].sort((a, b) => {
     let itemA, itemB;
@@ -35,8 +62,8 @@ export const sortList = (list, sortKey, orderKey) => {
         itemB = b.dateOfBirth.toLowerCase();
         break;
       case 'street':
-        itemA = a.street.toLowerCase();
-        itemB = b.street.toLowerCase();
+        itemA = formatStreet(a.street);
+        itemB = formatStreet(b.street);
         break;
       case 'city':
         itemA = a.city.toLowerCase();
@@ -182,6 +209,8 @@ export const validateForm = (values) => {
   }
   if (!values.zipCode) {
     errors.zipCode = 'Required';
+  } else if (values.zipCode < 1000 || values.zipCode >= 100000) {
+    errors.zipCode = 'Invalid format - Must contain five digits';
   }
 
   return errors;
