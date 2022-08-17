@@ -35,7 +35,7 @@ const EmployeesForm = () => {
       onSubmit={onSubmit}
       validate={validateForm}
     >
-      <Form id="form">
+      <Form id="form" data-testid="form">
         <InputField labelContent="First Name" inputType="text" />
         <InputField labelContent="Last Name" inputType="text" />
         <DatePicker label="Date of Birth" name="dateOfBirth" />

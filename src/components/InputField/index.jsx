@@ -10,7 +10,12 @@ const InputField = ({ labelContent, inputType }) => {
         id={formatId(labelContent)}
         name={formatName(labelContent)}
       />
-      <ErrorMessage name={formatName(labelContent)} />
+      <div
+        id={`error-${formatId(labelContent)}`}
+        data-testid={`error-${formatId(labelContent)}`}
+      >
+        <ErrorMessage name={formatName(labelContent)} />
+      </div>
     </div>
   );
 };
