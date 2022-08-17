@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { useAppSelector } from '../../utils/hooks';
 import { mockedAppSelector } from '../../utils/testsUtils';
-import EmployeesTable from './index';
+import EmployeeTable from './index';
 
 jest.mock('../../utils/hooks');
 
@@ -15,55 +15,55 @@ describe('Employees table tests suite', () => {
   });
 
   it('Should render first name colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const firstName = screen.getByText('First Name');
     expect(firstName).toBeInTheDocument();
   });
 
   it('Should render last name colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const lastName = screen.getByText('Last Name');
     expect(lastName).toBeInTheDocument();
   });
 
   it('Should render start date colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const startDate = screen.getByText('Start Date');
     expect(startDate).toBeInTheDocument();
   });
 
   it('Should render department colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const department = screen.getByText('Department');
     expect(department).toBeInTheDocument();
   });
 
   it('Should render date of birth colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const dateOfBirth = screen.getByText('Date of Birth');
     expect(dateOfBirth).toBeInTheDocument();
   });
 
   it('Should render street colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const street = screen.getByText('Street');
     expect(street).toBeInTheDocument();
   });
 
   it('Should render city colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const city = screen.getByText('City');
     expect(city).toBeInTheDocument();
   });
 
   it('Should render state colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const state = screen.getByText('State');
     expect(state).toBeInTheDocument();
   });
 
   it('Should render zip code colunm', () => {
-    render(<EmployeesTable />);
+    render(<EmployeeTable />);
     const zipCode = screen.getByText('Zip Code');
     expect(zipCode).toBeInTheDocument();
   });

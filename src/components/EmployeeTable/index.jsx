@@ -1,9 +1,9 @@
 import { useAppSelector } from '../../utils/hooks';
 import { applyUserOptions } from '../../utils/functions';
 import SortButton from '../table-components/SortButton';
-import './EmployeesTable.css';
+import './EmployeeTable.css';
 
-const EmployeesTable = () => {
+const EmployeeTable = () => {
   const employeesList = useAppSelector((state) => state.employees.list);
   const entries = useAppSelector((state) => state.displayOptions.tableLength);
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
@@ -84,4 +84,4 @@ const EmployeesTable = () => {
   );
 };
 
-export default EmployeesTable;
+export default EmployeeTable;
