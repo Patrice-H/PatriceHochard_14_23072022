@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import BottomTableDisplayOptions from '../../components/table-components/BottomTableDisplayOptions';
-import EmployeeTable from '../../components/EmployeeTable';
+import EmployeesTable from '../../components/EmployeesTable';
 import TableDisplayOptions from '../../components/table-components/TableDisplayOptions';
 
 const Employees = () => {
@@ -11,7 +11,7 @@ const Employees = () => {
       </header>
       <div id="employees-page" className="container">
         <TableDisplayOptions />
-        <EmployeeTable />
+        <EmployeesTable />
         <BottomTableDisplayOptions />
         <Link to="/">Home</Link>
       </div>
