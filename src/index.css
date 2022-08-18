@@ -73,6 +73,7 @@ button {
 }
 #employees-page {
   min-width: 700px;
+  padding-bottom: 50px;
 }
 
 @media (max-width: 992px) {
