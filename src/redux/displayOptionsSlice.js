@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  sortBy: 'first-name',
-  orderBy: 'ascending',
+  sortBy: null,
+  orderBy: null,
   tableLength: 10,
   pageNumber: 1,
-  searchFilter: null,
+  searchFilter: '',
 };
 
 export const displayOptionsSlice = createSlice({
