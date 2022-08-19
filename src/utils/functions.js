@@ -156,8 +156,16 @@ export const formatId = (labelContent) => {
   return id;
 };
 
-export const formatName = (labelContent) => {
-  const tabName = labelContent.split(' ');
+export const formatName = (text) => {
+  let tabName;
+  if (text === null) {
+    return;
+  }
+  if (text.includes('-')) {
+    tabName = text.split('-');
+  } else {
+    tabName = text.split(' ');
+  }
   let name = tabName[0].toLowerCase();
   for (let i = 1; i < tabName.length; i++) {
     name = name + tabName[i].charAt(0).toUpperCase() + tabName[i].slice(1);
