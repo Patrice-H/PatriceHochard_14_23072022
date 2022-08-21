@@ -1,7 +1,7 @@
 import { Field } from 'formik';
-import { formatId, formatName } from '../../utils/functions';
-import { statesList } from '../../data/statesList';
-import { departmentsList } from '../../data/departmentsList';
+import { formatId, formatName } from '../../../utils/functions';
+import { statesList } from '../../../data/statesList';
+import { departmentsList } from '../../../data/departmentsList';
 
 const SelectMenu = ({ labelContent }) => {
   const list = labelContent === 'State' ? statesList : departmentsList;

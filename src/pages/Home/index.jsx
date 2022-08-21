@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import EmployeesForm from '../../components/EmployeesForm';
+import EmployeesForm from '../../components/Form';
 import Modal from '../../components/Modal';
 
 const Home = () => {

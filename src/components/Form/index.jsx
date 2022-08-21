@@ -1,7 +1,7 @@
 import { Formik, Form } from 'formik';
-import InputField from '../InputField';
-import DatePicker from '../DatePicker';
-import SelectMenu from '../SelectMenu';
+import InputField from './InputField';
+import DatePicker from './DatePicker';
+import SelectMenu from './SelectMenu';
 import { useAppDispatch } from '../../utils/hooks';
 import { addEmployee } from '../../redux/employeesSlice';
 import { formatEmployeeData, validateForm } from '../../utils/functions';

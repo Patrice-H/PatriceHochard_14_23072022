@@ -1,5 +1,5 @@
 import { Field, ErrorMessage } from 'formik';
-import { formatId, formatName } from '../../utils/functions';
+import { formatId, formatName } from '../../../utils/functions';
 
 const InputField = ({ labelContent, inputType }) => {
   return (
