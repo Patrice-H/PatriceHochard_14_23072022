@@ -1,4 +1,4 @@
-import { useAppSelector } from '../../utils/hooks';
+import { useAppSelector } from '../../../utils/hooks';
 
 const TableEntriesIndicator = ({ total }) => {
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);

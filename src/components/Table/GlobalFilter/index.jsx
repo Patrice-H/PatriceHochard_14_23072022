@@ -1,5 +1,5 @@
-import { useAppSelector, useAppDispatch } from '../../utils/hooks';
-import { setSearchFilter } from '../../redux/displayOptionsSlice';
+import { useAppSelector, useAppDispatch } from '../../../utils/hooks';
+import { setSearchFilter } from '../../../redux/displayOptionsSlice';
 import './GlobalFilter.css';
 
 const GlobalFilter = ({ setFilter }) => {

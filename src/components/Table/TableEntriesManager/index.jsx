@@ -1,5 +1,8 @@
-import { useAppDispatch } from '../../utils/hooks';
-import { setTableLength, setPageNumber } from '../../redux/displayOptionsSlice';
+import { useAppDispatch } from '../../../utils/hooks';
+import {
+  setTableLength,
+  setPageNumber,
+} from '../../../redux/displayOptionsSlice';
 import './TableEntriesManager.css';
 
 const options = [

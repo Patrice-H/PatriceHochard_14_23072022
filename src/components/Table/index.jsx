@@ -12,8 +12,8 @@ import { formatId, formatName } from '../../utils/functions';
 import sortBtn from '../../assets/sort-btn.png';
 import sortAscBtn from '../../assets/sort-asc-btn.png';
 import sortDescBtn from '../../assets/sort-desc-btn.png';
-import HeaderOptions from '../HeaderOptions';
-import FooterOptions from '../FooterOptions';
+import HeaderOptions from './HeaderOptions';
+import FooterOptions from './FooterOptions';
 import './EmployeesTable.css';
 
 const EmployeesTable = () => {
