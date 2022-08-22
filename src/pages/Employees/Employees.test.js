@@ -6,6 +6,14 @@ import Employees from './index';
 
 jest.mock('../../utils/hooks');
 
+const renderComponents = () => {
+  render(
+    <MemoryRouter>
+      <Employees />
+    </MemoryRouter>
+  );
+};
+
 describe('Employees page test suites', () => {
   beforeEach(() => {
     useAppSelector.mockImplementation(mockedAppSelector);
@@ -16,41 +24,19 @@ describe('Employees page test suites', () => {
   });
 
   it('Should render employees page title', () => {
-    render(
-      <MemoryRouter>
-        <Employees />
-      </MemoryRouter>
-    );
+    renderComponents();
     const expectedTitle = screen.getByText('Current Employees');
     expect(expectedTitle).toBeInTheDocument();
   });
 
-  it('Should render table display options', () => {
-    render(
-      <MemoryRouter>
-        <Employees />
-      </MemoryRouter>
-    );
-    const tableDisplayOptions = screen.getByTestId('table-display-options');
-    expect(tableDisplayOptions).toBeInTheDocument();
-  });
-
   it('Should render employees table', () => {
-    render(
-      <MemoryRouter>
-        <Employees />
-      </MemoryRouter>
-    );
+    renderComponents();
     const employeesTable = screen.getByTestId('employees-table');
     expect(employeesTable).toBeInTheDocument();
   });
 
   it('Should render home page link', () => {
-    render(
-      <MemoryRouter>
-        <Employees />
-      </MemoryRouter>
-    );
+    renderComponents();
     const expectedLink = screen.getByText('Home');
     expect(expectedLink).toBeInTheDocument();
   });
