@@ -26,7 +26,7 @@ const TablePageNavigator = ({
   };
 
   return (
-    <div>
+    <div data-testid="table-page-navigator">
       <span
         className={canPreviousPage ? 'page-btn' : 'page-btn disabled-btn'}
         onClick={() => decrementPage()}

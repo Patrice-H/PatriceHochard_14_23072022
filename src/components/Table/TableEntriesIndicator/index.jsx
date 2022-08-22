@@ -27,7 +27,10 @@ const TableEntriesIndicator = ({ total }) => {
   };
 
   return (
-    <div id="table-entries-informations">
+    <div
+      id="table-entries-informations"
+      data-testid="table-entries-informations"
+    >
       <span>Showing </span>
       <span data-testid="start-index">{startIndex()}</span>
       <span> to </span>
