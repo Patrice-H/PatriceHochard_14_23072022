@@ -10,7 +10,7 @@ const state = {
     orderBy: '',
     tableLength: 2,
     pageNumber: 1,
-    searchFilter: null,
+    searchFilter: '',
   },
 };
 
