@@ -1,4 +1,9 @@
-import { sortList, filterList, validateForm } from './functions';
+import {
+  sortList,
+  filterList,
+  validateForm,
+  applyUserOptions,
+} from './functions';
 import { employeesList } from '../data/dataTest';
 
 describe('SortList function unit tests suite', () => {
@@ -191,5 +196,19 @@ describe('ValidateForm function tests suite', () => {
     const errors = validateForm(values);
     expect(errors.firstName).toBe('Invalid format - Must only contain letters');
     expect(errors.lastName).toBe('Invalid format - Must only contain letters');
+  });
+});
+
+describe('ApplyUserOptions function tests suite', () => {
+  it('Should return the rigth list', () => {
+    const newList = applyUserOptions(
+      employeesList,
+      'ver',
+      'first-name',
+      'ascending'
+    );
+    expect(newList.length).toEqual(2);
+    expect(newList[0].firstName).toEqual('Donald');
+    expect(newList[1].firstName).toEqual('Mickey');
   });
 });
