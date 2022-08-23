@@ -107,6 +107,7 @@ const EmployeesTable = () => {
                   >
                     <div
                       className="th"
+                      data-testid={column.id}
                       onClick={() => {
                         updateDisplayOptions(column);
                       }}

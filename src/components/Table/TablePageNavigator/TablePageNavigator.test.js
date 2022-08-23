@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { mockedStore } from '../../../utils/testsUtils';
+import { store } from '../../../redux/store';
 import TablePageManager from './index';
 
 const previousPage = jest.fn();
@@ -21,6 +21,8 @@ const renderComponents = () => {
 };
 
 describe('TablePageManage tests suite', () => {
+  /* Component integrity tests */
+
   it('Should render navigation buttons', () => {
     renderComponents();
     const previousBtn = screen.getByText('Previous');
@@ -35,27 +37,30 @@ describe('TablePageManage tests suite', () => {
     expect(indicator).toBeInTheDocument();
   });
 
-  it('Should disable navigation buttons when there is not data', () => {
+  it('Should enable navigation button when there are data on next page', () => {
     renderComponents();
-    const previousBtn = screen.getByText('Previous');
     const nextBtn = screen.getByText('Next');
-    expect(previousBtn.classList.contains('disabled-btn')).toBe(true);
     expect(nextBtn.classList.contains('disabled-btn')).toBe(false);
   });
 
-  it('Should display the right page when user click on navigation buttons', () => {
-    renderComponents();
+  it('Should hide indicator and disable navigation buttons when there is not data', () => {
+    render(
+      <Provider store={store}>
+        <TablePageManager
+          previousPage={previousPage}
+          nextPage={nextPage}
+          canPreviousPage={false}
+          canNextPage={false}
+        />
+      </Provider>
+    );
     const previousBtn = screen.getByText('Previous');
-    const nextBtn = screen.getByText('Next');
     const indicator = screen.getByTestId('page-indicator');
-
-    //Initial display
+    const nextBtn = screen.getByText('Next');
     expect(previousBtn.classList.contains('disabled-btn')).toBe(true);
-    expect(nextBtn.classList.contains('disabled-btn')).toBe(false);
-    expect(indicator.innerHTML).toBe('1');
-
-    // Display when user have clicked on next button
-    userEvent.click(nextBtn);
-    expect(indicator.innerHTML).toBe('2');
+    expect(indicator.classList.contains('hidden')).toBe(true);
+    expect(nextBtn.classList.contains('disabled-btn')).toBe(true);
   });
+
+  /* Component functionalities tests (See EmployeesTable.test.js) */
 });
