@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import EmployeesForm from '../../components/Form';
-import Modal from '../../components/Modal';
+import Modal from '@patrice-h/my-modal';
 
 const Home = () => {
   return (
