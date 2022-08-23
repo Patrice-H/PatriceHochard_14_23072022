@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import EmployeesTable from '../../components/Table';
 
+/**
+ * Component that assembles multiple components and returns the employees page
+ *
+ * @component
+ * @see {@link EmployeesTable}
+ * @returns A function that returns the page
+ */
 const Employees = () => {
   return (
     <>

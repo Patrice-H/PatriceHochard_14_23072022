@@ -1,3 +1,10 @@
+/**
+ * Function that returns a US date into string with the format (yyyy-mm-dd).
+ *
+ * @function
+ * @param {date} date
+ * @returns {string} The formated date
+ */
 const formatDate = (date) => {
   const year = date.getFullYear();
   const month = (date.getMonth() + 1).toLocaleString('en-US', {
@@ -10,6 +17,13 @@ const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
+/**
+ * Function that returns a US zip code into string and add 0 at first if its number of digits < 5.
+ *
+ * @function
+ * @param {number} number
+ * @returns {string} The formated zip code
+ */
 const formatZipCode = (number) => {
   let zipCode = number.toString();
   if (zipCode.length < 5) {
@@ -19,6 +33,13 @@ const formatZipCode = (number) => {
   return zipCode;
 };
 
+/**
+ * Function that returns a formated id from a label text.
+ *
+ * @function
+ * @param {string} labelContent
+ * @returns {string} The formated id
+ */
 export const formatId = (labelContent) => {
   const regex = / /g;
   const id = labelContent.replace(regex, '-').toLowerCase();
@@ -26,6 +47,13 @@ export const formatId = (labelContent) => {
   return id;
 };
 
+/**
+ * Function that returns a parameter name in camelCase from a label text or an id.
+ *
+ * @function
+ * @param {string} text
+ * @returns {string} The formated name
+ */
 export const formatName = (text) => {
   let tabName;
   if (text === null) {
@@ -44,6 +72,15 @@ export const formatName = (text) => {
   return name;
 };
 
+/**
+ * Function that returns formated employee data.
+ *
+ * @see {@link formatDate}
+ * @see {@link formatZipCode}
+ * @function
+ * @param {object} value
+ * @returns {object} The formated employee data
+ */
 export const formatEmployeeData = (values) => {
   values.dateOfBirth = formatDate(values.dateOfBirth);
   values.startDate = formatDate(values.startDate);
@@ -52,6 +89,13 @@ export const formatEmployeeData = (values) => {
   return values;
 };
 
+/**
+ * Function that returns a errors object from employee data.
+ *
+ * @function
+ * @param {object} value
+ * @returns {object} The formated date
+ */
 export const validateForm = (values) => {
   let errors = {};
   if (!values.firstName) {

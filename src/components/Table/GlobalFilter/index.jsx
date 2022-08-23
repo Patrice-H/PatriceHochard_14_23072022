@@ -5,12 +5,25 @@ import {
 } from '../../../redux/displayOptionsSlice';
 import './GlobalFilter.css';
 
+/**
+ * Component that returns a text label, and an input text field.
+ *
+ * @component
+ * @param {{setFilter: function, gotoPage: function}} - Props component
+ * @returns {JSX} A function that returns the component
+ */
 const GlobalFilter = ({ setFilter, gotoPage }) => {
   const dispatch = useAppDispatch();
   const searchFilter = useAppSelector(
     (state) => state.displayOptions.searchFilter
   );
 
+  /**
+   * Function that defines the search filter.
+   *
+   * @function
+   * @param {string} text - Searched text
+   */
   const setGlobalFilter = (text) => {
     setFilter(text);
     gotoPage(0);

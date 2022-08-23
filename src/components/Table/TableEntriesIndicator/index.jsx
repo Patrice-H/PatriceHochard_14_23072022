@@ -1,11 +1,24 @@
 import { useAppSelector } from '../../../utils/hooks';
 
+/**
+ * Component that returns informations about number of entries on page.
+ *
+ * @component
+ * @param {{total: number}} - Props component
+ * @returns {JSX} A function that returns the component
+ */
 const TableEntriesIndicator = ({ total }) => {
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
   const tableLength = useAppSelector(
     (state) => state.displayOptions.tableLength
   );
 
+  /**
+   * Function that returns the index of the first entrie of the page.
+   *
+   * @function
+   * @returns {number} Index of the first entrie
+   */
   const startIndex = () => {
     if (total > 0) {
       return 1 + tableLength * (pageNumber - 1);
@@ -14,6 +27,12 @@ const TableEntriesIndicator = ({ total }) => {
     return 0;
   };
 
+  /**
+   * Function that returns the index of the last entrie of the page.
+   *
+   * @function
+   * @returns {number} Index of the last entrie
+   */
   const endIndex = () => {
     if (total > 0) {
       if (total > tableLength * pageNumber) {

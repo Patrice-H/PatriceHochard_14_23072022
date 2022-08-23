@@ -1,3 +1,4 @@
+// Option list of the departments drop down menu
 export const departmentsList = [
   { value: 'Sales', label: 'Sales' },
   { value: 'Marketing', label: 'Marketing' },

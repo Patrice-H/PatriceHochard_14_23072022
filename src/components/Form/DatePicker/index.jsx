@@ -3,6 +3,15 @@ import { Field, ErrorMessage } from 'formik';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePicker.css';
 
+/**
+ * Component that returns a text label, an input text field, a date picker and an error message
+ *
+ * Includes react-datepicker component
+ * @see {@link https://github.com/Hacker0x01/react-datepicker} for further information.
+ * @component
+ * @param {{label: string, name: string, rest: functions}} props - Props component
+ * @returns {JSX} A function that returns the component
+ */
 const DatePicker = (props) => {
   const { label, name, ...rest } = props;
 

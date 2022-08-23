@@ -1,3 +1,4 @@
+// List of columns of the employees table
 export const COLUMNS = [
   {
     Header: 'First Name',

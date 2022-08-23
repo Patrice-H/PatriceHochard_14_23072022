@@ -5,6 +5,7 @@ import {
 } from '../../../redux/displayOptionsSlice';
 import './TableEntriesManager.css';
 
+// Select drop down options
 const options = [
   { number: 10 },
   { number: 25 },
@@ -12,9 +13,22 @@ const options = [
   { number: 100 },
 ];
 
+/**
+ * Component that returns a text label, and a select drop down.
+ *
+ * @component
+ * @param {{pageSize: number, setPageSize: function, gotoPage: function}} - Props component
+ * @returns {JSX} A function that returns the component
+ */
 const TableEntriesManager = ({ pageSize, setPageSize, gotoPage }) => {
   const dispatch = useAppDispatch();
 
+  /**
+   * Function that defines the number of table entries.
+   *
+   * @function
+   * @param {number} value - Number of table entries
+   */
   const defineTableLength = (value) => {
     setPageSize(value);
     gotoPage(0);

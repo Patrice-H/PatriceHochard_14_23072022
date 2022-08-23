@@ -53,8 +53,10 @@ const appReducers = combineReducers({
   displayOptions: displayOptionsSlice.reducer,
 });
 
+// Mocked store for testing
 export const mockedStore = configureStore({
   reducer: appReducers,
 });
 
+// Mocked selector for testing
 export const mockedAppSelector = (f) => f(state);

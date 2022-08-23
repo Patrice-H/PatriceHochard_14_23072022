@@ -1,3 +1,4 @@
+// Option list of the states drop down menu
 export const statesList = [
   { value: 'AL', label: 'Alabama' },
   { value: 'AK', label: 'Alaska' },

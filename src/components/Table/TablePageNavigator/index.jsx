@@ -2,6 +2,13 @@ import { useAppSelector, useAppDispatch } from '../../../utils/hooks';
 import { setPageNumber } from '../../../redux/displayOptionsSlice';
 import './TablePageNavigator.css';
 
+/**
+ * Component that allows navigation between table pages.
+ *
+ * @component
+ * @param {{previousPage: function, nextPage: function, canPreviousPage: boolean, canNextPage: boolean}} - Props component
+ * @returns {JSX} A function that returns the component
+ */
 const TablePageNavigator = ({
   previousPage,
   nextPage,
@@ -12,6 +19,11 @@ const TablePageNavigator = ({
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
   const employeesList = useAppSelector((state) => state.employees.list);
 
+  /**
+   * Function that allows navigation to next page.
+   *
+   * @function
+   */
   const incrementPage = () => {
     if (canNextPage) {
       nextPage();
@@ -19,6 +31,11 @@ const TablePageNavigator = ({
     }
   };
 
+  /**
+   * Function that allows navigation to previous page.
+   *
+   * @function
+   */
   const decrementPage = () => {
     if (canPreviousPage) {
       previousPage();

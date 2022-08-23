@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom';
 import EmployeesForm from '../../components/Form';
 import Modal from '@patrice-h/my-modal';
 
+/**
+ * Component that assembles multiple components and returns the home page
+ *
+ * Includes custom component
+ * @see {@link https://www.npmjs.com/package/@patrice-h/my-modal}
+ * @see {@link EmployeesForm}
+ * @component
+ * @returns A function that returns the page
+ */
 const Home = () => {
   return (
     <>

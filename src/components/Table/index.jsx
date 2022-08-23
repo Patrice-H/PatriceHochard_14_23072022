@@ -16,6 +16,16 @@ import HeaderOptions from './HeaderOptions';
 import FooterOptions from './FooterOptions';
 import './EmployeesTable.css';
 
+/**
+ * Component that returns the employees table.
+ *
+ * Includes react-table components.
+ * @see {@link https://github.com/TanStack/table} for further information.
+ * @see {@link HeaderOptions}
+ * @see {@link FooterOptions}
+ * @component
+ * @returns {JSX} A function that returns the component
+ */
 const EmployeesTable = () => {
   const dispatch = useAppDispatch();
   const employeesList = useAppSelector((state) => state.employees.list);
@@ -23,19 +33,19 @@ const EmployeesTable = () => {
   const orderedBy = useAppSelector((state) => state.displayOptions.orderBy);
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
   const entries = useAppSelector((state) => state.displayOptions.tableLength);
-
   // prettier-ignore
   const filtredBy = useAppSelector((state) => state.displayOptions.searchFilter);
-
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => employeesList, [employeesList]);
   const tableFilter = useMemo(() => filtredBy, [filtredBy]);
 
+  // Defines sortBy property
   const sortBy =
     sortedBy === null
       ? []
       : [{ id: formatName(sortedBy), desc: orderedBy === 'descending' }];
 
+  // Defines initial state of table
   const initialState = {
     sortBy,
     globalFilter: tableFilter,
@@ -71,6 +81,11 @@ const EmployeesTable = () => {
 
   const { pageSize } = state;
 
+  /**
+   * Function that update sort and order of the table.
+   *
+   * @function
+   */
   const updateDisplayOptions = (column) => {
     if (!column.isSorted && column.isSortedDesc === undefined) {
       dispatch(setSortBy(formatId(column.Header)));
