@@ -10,7 +10,7 @@ const FooterOptions = ({
   canNextPage,
 }) => {
   return (
-    <div id="footer-options">
+    <div id="table-footer-options" data-testid="table-footer-options">
       <TableEntriesIndicator total={total} />
       <TablePageNavigator
         previousPage={previousPage}
