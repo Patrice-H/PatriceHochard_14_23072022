@@ -10,6 +10,7 @@ const TablePageNavigator = ({
 }) => {
   const dispatch = useAppDispatch();
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
+  const employeesList = useAppSelector((state) => state.employees.list);
 
   const incrementPage = () => {
     if (canNextPage) {
@@ -33,7 +34,11 @@ const TablePageNavigator = ({
       >
         Previous
       </span>
-      <span id="page-indicator" data-testid="page-indicator">
+      <span
+        id="page-indicator"
+        data-testid="page-indicator"
+        className={employeesList.length > 0 ? null : 'hidden'}
+      >
         {pageNumber}
       </span>
       <span
