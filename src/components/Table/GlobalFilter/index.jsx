@@ -1,8 +1,11 @@
 import { useAppSelector, useAppDispatch } from '../../../utils/hooks';
-import { setSearchFilter } from '../../../redux/displayOptionsSlice';
+import {
+  setSearchFilter,
+  setPageNumber,
+} from '../../../redux/displayOptionsSlice';
 import './GlobalFilter.css';
 
-const GlobalFilter = ({ setFilter }) => {
+const GlobalFilter = ({ setFilter, gotoPage }) => {
   const dispatch = useAppDispatch();
   const searchFilter = useAppSelector(
     (state) => state.displayOptions.searchFilter
@@ -10,7 +13,9 @@ const GlobalFilter = ({ setFilter }) => {
 
   const setGlobalFilter = (text) => {
     setFilter(text);
+    gotoPage(0);
     dispatch(setSearchFilter(text));
+    dispatch(setPageNumber(1));
   };
 
   return (

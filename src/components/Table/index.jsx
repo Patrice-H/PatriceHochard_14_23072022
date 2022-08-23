@@ -52,6 +52,7 @@ const EmployeesTable = () => {
     page,
     previousPage,
     nextPage,
+    gotoPage,
     canPreviousPage,
     canNextPage,
     setPageSize,
@@ -92,6 +93,7 @@ const EmployeesTable = () => {
         pageSize={pageSize}
         setPageSize={setPageSize}
         setFilter={setGlobalFilter}
+        gotoPage={gotoPage}
       />
       <div id="employees-table" data-testid="employees-table">
         <table {...getTableProps()}>

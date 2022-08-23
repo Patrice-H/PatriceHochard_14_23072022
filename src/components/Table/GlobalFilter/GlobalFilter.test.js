@@ -5,11 +5,12 @@ import { store } from '../../../redux/store';
 import GlobalFilter from './index';
 
 const setFilter = jest.fn();
+const gotoPage = jest.fn();
 
 const renderComponents = () => {
   render(
     <Provider store={store}>
-      <GlobalFilter setFilter={setFilter} />
+      <GlobalFilter setFilter={setFilter} gotoPage={gotoPage} />
     </Provider>
   );
 };

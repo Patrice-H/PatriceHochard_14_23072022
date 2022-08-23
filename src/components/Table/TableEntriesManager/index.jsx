@@ -12,11 +12,12 @@ const options = [
   { number: 100 },
 ];
 
-const TableEntriesManager = ({ pageSize, setPageSize }) => {
+const TableEntriesManager = ({ pageSize, setPageSize, gotoPage }) => {
   const dispatch = useAppDispatch();
 
   const defineTableLength = (value) => {
     setPageSize(value);
+    gotoPage(0);
     dispatch(setTableLength(value));
     dispatch(setPageNumber(1));
   };

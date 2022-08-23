@@ -5,11 +5,16 @@ import { store } from '../../../redux/store';
 import TableEntriesManager from './index';
 
 const setPageSize = jest.fn();
+const gotoPage = jest.fn();
 
 const renderComponents = () => {
   render(
     <Provider store={store}>
-      <TableEntriesManager pageSize="10" setPageSize={setPageSize} />
+      <TableEntriesManager
+        pageSize="10"
+        setPageSize={setPageSize}
+        gotoPage={gotoPage}
+      />
     </Provider>
   );
 };
