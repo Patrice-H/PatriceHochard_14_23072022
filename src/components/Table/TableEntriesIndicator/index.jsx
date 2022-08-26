@@ -12,6 +12,7 @@ const TableEntriesIndicator = ({ total }) => {
   const tableLength = useAppSelector(
     (state) => state.displayOptions.tableLength
   );
+  const employeesList = useAppSelector((state) => state.employees.list);
 
   /**
    * Function that returns the index of the first entrie of the page.
@@ -45,6 +46,20 @@ const TableEntriesIndicator = ({ total }) => {
     return 0;
   };
 
+  /**
+   * Function that returns a additional text in case of filtered table.
+   *
+   * @function
+   * @returns {JSX} the additionnal text
+   */
+  const additionalText = () => {
+    return (
+      <span data-testid="additional-text">
+        (filtered from {employeesList.length} total entries)
+      </span>
+    );
+  };
+
   return (
     <div
       id="table-entries-informations"
@@ -56,7 +71,10 @@ const TableEntriesIndicator = ({ total }) => {
       <span data-testid="end-index">{endIndex()}</span>
       <span> of </span>
       <span data-testid="total-index">{total}</span>
-      <span> entries</span>
+      <span> entries </span>
+      {employeesList.length > 0 && employeesList.length > total
+        ? additionalText()
+        : null}
     </div>
   );
 };

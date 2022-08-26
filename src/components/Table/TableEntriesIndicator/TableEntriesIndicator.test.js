@@ -24,7 +24,6 @@ describe('TableEntriesIndicator tests suite', () => {
   });
 
   it('Should render all of texts of component', () => {
-    //renderComponents();
     useAppSelector.mockImplementation((f) => f(state));
     render(<TableEntriesIndicator total="3" />);
     const showing = screen.getByText('Showing');
@@ -38,7 +37,6 @@ describe('TableEntriesIndicator tests suite', () => {
   });
 
   it('Should render rigth number of entries on page 1', () => {
-    //renderComponents();
     useAppSelector.mockImplementation((f) => f(state));
     render(<TableEntriesIndicator total="3" />);
     const startIndex = screen.getByTestId('start-index');
@@ -61,9 +59,16 @@ describe('TableEntriesIndicator tests suite', () => {
     expect(totalIndex.innerHTML).toEqual('3');
   });
 
+  it('Should render additional text when table is filtered', () => {
+    state.displayOptions.pageNumber = 1;
+    useAppSelector.mockImplementation((f) => f(state));
+    render(<TableEntriesIndicator total="1" />);
+    const additionalText = screen.getByTestId('additional-text');
+    expect(additionalText).toBeInTheDocument();
+  });
+
   it('Should render no entries when there are not data', () => {
     state.employees.list = [];
-    state.displayOptions.pageNumber = 1;
     useAppSelector.mockImplementation((f) => f(state));
     render(<TableEntriesIndicator total="0" />);
     const startIndex = screen.getByTestId('start-index');
