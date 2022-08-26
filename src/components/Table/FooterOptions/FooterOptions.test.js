@@ -6,7 +6,7 @@ import FooterOptions from './index';
 const renderComponents = () => {
   render(
     <Provider store={store}>
-      <FooterOptions />
+      <FooterOptions filteredEntries="1" />
     </Provider>
   );
 };

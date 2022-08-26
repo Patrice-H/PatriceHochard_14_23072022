@@ -17,6 +17,8 @@ const FooterOptions = ({
   nextPage,
   canPreviousPage,
   canNextPage,
+  gotoPage,
+  filteredEntries,
 }) => {
   return (
     <div id="table-footer-options" data-testid="table-footer-options">
@@ -26,6 +28,8 @@ const FooterOptions = ({
         nextPage={nextPage}
         canPreviousPage={canPreviousPage}
         canNextPage={canNextPage}
+        gotoPage={gotoPage}
+        filteredEntries={filteredEntries}
       />
     </div>
   );

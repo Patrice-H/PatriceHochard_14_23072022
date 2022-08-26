@@ -178,6 +178,8 @@ const EmployeesTable = () => {
         nextPage={nextPage}
         canPreviousPage={canPreviousPage}
         canNextPage={canNextPage}
+        gotoPage={gotoPage}
+        filteredEntries={rows.length}
       />
     </>
   );
