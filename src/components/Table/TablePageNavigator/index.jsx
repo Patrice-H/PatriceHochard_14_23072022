@@ -14,10 +14,20 @@ const TablePageNavigator = ({
   nextPage,
   canPreviousPage,
   canNextPage,
+  gotoPage,
+  filteredEntries,
 }) => {
   const dispatch = useAppDispatch();
   const pageNumber = useAppSelector((state) => state.displayOptions.pageNumber);
   const employeesList = useAppSelector((state) => state.employees.list);
+  const tableLength = useAppSelector(
+    (state) => state.displayOptions.tableLength
+  );
+
+  const pageButtons = new Array(Math.ceil(filteredEntries / tableLength));
+  for (let i = 0; i < pageButtons.length; i++) {
+    pageButtons[i] = i + 1;
+  }
 
   /**
    * Function that allows navigation to next page.
@@ -43,6 +53,11 @@ const TablePageNavigator = ({
     }
   };
 
+  const displayPage = (page) => {
+    gotoPage(page - 1);
+    dispatch(setPageNumber(page));
+  };
+
   return (
     <div data-testid="table-page-navigator">
       <span
@@ -51,13 +66,20 @@ const TablePageNavigator = ({
       >
         Previous
       </span>
-      <span
-        id="page-indicator"
-        data-testid="page-indicator"
-        className={employeesList.length > 0 ? null : 'hidden'}
-      >
-        {pageNumber}
-      </span>
+      {employeesList.length > 0
+        ? pageButtons.map((pageButton) => (
+            <span
+              key={pageButton}
+              className={
+                pageNumber === pageButton ? 'page-btn active' : 'page-btn'
+              }
+              data-testid={`page-btn-${pageButton}`}
+              onClick={() => displayPage(pageButton)}
+            >
+              {pageButton}
+            </span>
+          ))
+        : null}
       <span
         className={canNextPage ? 'page-btn' : 'page-btn disabled-btn'}
         onClick={() => incrementPage()}

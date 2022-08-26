@@ -15,6 +15,7 @@ const renderComponents = () => {
         nextPage={nextPage}
         canPreviousPage={false}
         canNextPage={true}
+        filteredEntries="30"
       />
     </Provider>
   );
@@ -23,7 +24,7 @@ const renderComponents = () => {
 describe('TablePageManage tests suite', () => {
   /* Component integrity tests */
 
-  it('Should render navigation buttons', () => {
+  it('Should render previous and next navigation buttons', () => {
     renderComponents();
     const previousBtn = screen.getByText('Previous');
     const nextBtn = screen.getByText('Next');
@@ -31,10 +32,14 @@ describe('TablePageManage tests suite', () => {
     expect(nextBtn).toBeInTheDocument();
   });
 
-  it('Should render indicator of page', () => {
+  it('Should render three page navigation buttons', () => {
     renderComponents();
-    const indicator = screen.getByTestId('page-indicator');
-    expect(indicator).toBeInTheDocument();
+    const button1 = screen.getByTestId('page-btn-1');
+    const button2 = screen.getByTestId('page-btn-2');
+    const button3 = screen.getByTestId('page-btn-1');
+    expect(button1).toBeInTheDocument();
+    expect(button2).toBeInTheDocument();
+    expect(button3).toBeInTheDocument();
   });
 
   it('Should enable navigation button when there are data on next page', () => {
@@ -43,7 +48,7 @@ describe('TablePageManage tests suite', () => {
     expect(nextBtn.classList.contains('disabled-btn')).toBe(false);
   });
 
-  it('Should hide indicator and disable navigation buttons when there is not data', () => {
+  it('Should disable previous and next navigation button when there are not data', () => {
     render(
       <Provider store={store}>
         <TablePageManager
@@ -51,14 +56,13 @@ describe('TablePageManage tests suite', () => {
           nextPage={nextPage}
           canPreviousPage={false}
           canNextPage={false}
+          filteredEntries="0"
         />
       </Provider>
     );
     const previousBtn = screen.getByText('Previous');
-    const indicator = screen.getByTestId('page-indicator');
     const nextBtn = screen.getByText('Next');
     expect(previousBtn.classList.contains('disabled-btn')).toBe(true);
-    expect(indicator.classList.contains('hidden')).toBe(true);
     expect(nextBtn.classList.contains('disabled-btn')).toBe(true);
   });
 

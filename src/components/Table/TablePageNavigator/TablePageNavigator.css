@@ -1,10 +1,6 @@
 #page-indicator {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  text-align: center;
-  margin: 0 15px;
+  padding: 8px 16px;
+  margin: 0 1px;
   background: linear-gradient(#fdfdfd, #dedede);
   border: solid 1px #b0b0b0;
   border-radius: 3px;
@@ -14,10 +10,27 @@
 }
 .page-btn {
   cursor: pointer;
-  text-decoration: underline;
+  margin: 0 1px;
+  padding: 8px 16px;
+  border: solid 1px white;
+  border-radius: 3px;
 }
-.page-btn.disabled-btn {
+.page-btn:hover.active,
+.page-btn.active {
+  color: black;
+  background: linear-gradient(#fdfdfd, #dedede);
+  border-color: #b0b0b0;
   cursor: auto;
+}
+.page-btn:hover {
+  background: linear-gradient(#525252, #333333);
+  color: white;
+  border-color: black;
+}
+.page-btn:hover.disabled-btn,
+.page-btn.disabled-btn {
   color: #b0b0b0;
-  text-decoration: none;
+  background: none;
+  border-color: white;
+  cursor: auto;
 }
