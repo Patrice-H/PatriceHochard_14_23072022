@@ -50,7 +50,7 @@ describe('EmployeesTable tests suite', () => {
 
   /* Component functionalities tests */
 
-  it('Should update store when user click on column header', () => {
+  it('Should update sortBy and orderBy states in store when user click on column header', () => {
     renderComponents();
     const firstName = screen.getByTestId('firstName');
 
@@ -81,21 +81,33 @@ describe('EmployeesTable tests suite', () => {
       </Provider>
     );
     const nextBtn = screen.getByText('Next');
-    const indicator = screen.getByTestId('page-indicator');
     const previousBtn = screen.getByText('Previous');
 
     // Test before click on next page button
-    expect(indicator.innerHTML).toEqual('1');
     expect(mockedStore.getState().displayOptions.pageNumber).toEqual(1);
 
     // Test after click on next page button
     userEvent.click(nextBtn);
-    expect(indicator.innerHTML).toEqual('2');
     expect(mockedStore.getState().displayOptions.pageNumber).toEqual(2);
 
     // Test after click on previous page button
     userEvent.click(previousBtn);
-    expect(indicator.innerHTML).toEqual('1');
     expect(mockedStore.getState().displayOptions.pageNumber).toEqual(1);
+  });
+
+  it('Should be able to navigate to a specific page', () => {
+    render(
+      <Provider store={mockedStore}>
+        <EmployeesTable />
+      </Provider>
+    );
+    const button2 = screen.getByTestId('page-btn-2');
+
+    // Test before click on button to go to page 2
+    expect(mockedStore.getState().displayOptions.pageNumber).toEqual(1);
+
+    // Test after click on button to go to page 2
+    userEvent.click(button2);
+    expect(mockedStore.getState().displayOptions.pageNumber).toEqual(2);
   });
 });
