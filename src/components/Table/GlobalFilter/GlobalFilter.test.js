@@ -47,4 +47,21 @@ describe('GlobalFilter tests suite', () => {
     const stateUpdated2 = store.getState();
     expect(stateUpdated2.displayOptions.searchFilter).toBe('');
   });
+
+  it('Should reset filter when user click on reset button', () => {
+    renderComponents();
+    const input = screen.getByLabelText('Search:');
+
+    // User fills in the input field with the word test
+    userEvent.type(input, 'test');
+    const stateUpdated1 = store.getState();
+    expect(stateUpdated1.displayOptions.searchFilter).toBe('test');
+
+    // User remove the text in the input field
+    const resetBtn = screen.getByTestId('reset-filter-btn');
+    userEvent.click(resetBtn);
+    const stateUpdated2 = store.getState();
+    expect(stateUpdated2.displayOptions.searchFilter).toBe('');
+    expect(input.value).toEqual('');
+  });
 });

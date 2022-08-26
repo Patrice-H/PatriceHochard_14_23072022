@@ -5,3 +5,16 @@
 #table-filter label {
   margin: 0;
 }
+#reset-filter-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #7a80dd;
+  cursor: pointer;
+  position: absolute;
+  margin: 1px 0 0 216px;
+  opacity: 0;
+}
+#reset-filter-btn:hover,
+#search-filter:hover + #reset-filter-btn {
+  opacity: 1;
+}

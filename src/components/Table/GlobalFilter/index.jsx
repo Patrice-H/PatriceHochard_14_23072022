@@ -40,6 +40,15 @@ const GlobalFilter = ({ setFilter, gotoPage }) => {
         value={searchFilter}
         onChange={(e) => setGlobalFilter(e.target.value)}
       />
+      {searchFilter.length > 0 ? (
+        <span
+          id="reset-filter-btn"
+          data-testid="reset-filter-btn"
+          onClick={() => setGlobalFilter('')}
+        >
+          x
+        </span>
+      ) : null}
     </div>
   );
 };
