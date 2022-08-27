@@ -8,7 +8,7 @@ import './FooterOptions.css';
  * @component
  * @see {@link TableEntriesIndicator}
  * @see {@link TablePageNavigator}
- * @param {{total: number, previousPage: function, nextPage: function, canPreviousPage: boolean, canNextPage: boolean}} - Props component
+ * @param {{total: number, previousPage: function, nextPage: function, canPreviousPage: boolean, canNextPage: boolean, gotoPage: function, filteredEntries: number}} - Props component
  * @returns {JSX} A function that returns the component
  */
 const FooterOptions = ({

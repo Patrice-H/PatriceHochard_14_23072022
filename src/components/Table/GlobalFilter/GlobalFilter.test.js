@@ -16,6 +16,8 @@ const renderComponents = () => {
 };
 
 describe('GlobalFilter tests suite', () => {
+  /* Component integrity tests */
+
   it('Should render a label with the expected text', () => {
     renderComponents();
     const label = screen.getByText('Search:');
@@ -27,6 +29,8 @@ describe('GlobalFilter tests suite', () => {
     const input = screen.getByLabelText('Search:');
     expect(input).toBeInTheDocument();
   });
+
+  /* Component functionalities tests */
 
   it('Should update state when user change input value', () => {
     renderComponents();

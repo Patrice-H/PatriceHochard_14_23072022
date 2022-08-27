@@ -15,6 +15,8 @@ const renderComponents = () => {
 };
 
 describe('Input filed tests suite', () => {
+  /* Component integrity tests */
+
   it('Should render all inputs', () => {
     renderComponents();
     const inputText = screen.getByLabelText('text input');
@@ -38,6 +40,8 @@ describe('Input filed tests suite', () => {
     expect(inputText.value).toEqual('');
     expect(inputNumber.value).toEqual('');
   });
+
+  /* Component functionalities tests */
 
   it('Should return the rigth input values after changing', async () => {
     renderComponents();
