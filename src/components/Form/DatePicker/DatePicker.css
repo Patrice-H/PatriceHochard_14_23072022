@@ -4,3 +4,17 @@
 .react-datepicker__today-button {
   font-size: 1rem;
 }
+.previous-next-btn {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 1px;
+  padding: 0 9px;
+  border: 1px solid #c5c5c5;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.previous-next-btn:hover {
+  color: white;
+  background-color: #767676;
+  border-color: #333;
+}

@@ -15,6 +15,8 @@ const renderComponents = () => {
 };
 
 describe('Date picker tests suite', () => {
+  /* Component integrity tests */
+
   it('Should render all coponents', () => {
     renderComponents();
     const labelBirth = screen.getByText('Date of Birth');
@@ -47,7 +49,7 @@ describe('Date picker tests suite', () => {
     ).toEqual(true);
   });
 
-  it('Should render the current month in date picker', async () => {
+  it('Should render the current month and year in date picker', async () => {
     renderComponents();
     const inputBirth = screen.getByLabelText('Date of Birth');
     const date = new Date();
@@ -58,8 +60,10 @@ describe('Date picker tests suite', () => {
     await act(async () => {
       fireEvent.click(inputBirth);
     });
-    const currentMonth = screen.getByText(`${month} ${year}`);
-    expect(currentMonth).toBeInTheDocument();
+    const monthSelect = screen.getByTestId('month-select');
+    const yearSelect = screen.getByTestId('year-select');
+    expect(monthSelect.value).toEqual(month);
+    expect(yearSelect.value).toEqual(year.toString());
   });
 
   it('Should render navigation buttons in date picker', async () => {
@@ -70,8 +74,8 @@ describe('Date picker tests suite', () => {
     await act(async () => {
       fireEvent.click(inputBirth);
     });
-    const previousBtn = screen.getByText('Previous Month');
-    const nextBtn = screen.getByText('Next Month');
+    const previousBtn = screen.getByTestId('previous-month');
+    const nextBtn = screen.getByTestId('next-month');
     expect(previousBtn).toBeInTheDocument();
     expect(nextBtn).toBeInTheDocument();
   });
@@ -86,5 +90,62 @@ describe('Date picker tests suite', () => {
     });
     const todayBtn = screen.getByText('🏠');
     expect(todayBtn).toBeInTheDocument();
+  });
+
+  /* Component functionalities tests */
+
+  it('Should display previous and next month', async () => {
+    renderComponents();
+    const inputBirth = screen.getByLabelText('Date of Birth');
+    const actualDate = new Date();
+
+    const nextDate = new Date(
+      `${actualDate.getFullYear()}, ${
+        actualDate.getMonth() + 2
+      }, ${actualDate.getDate()}`
+    );
+    const actualMonth = actualDate.toLocaleString('en-GB', { month: 'long' });
+    const nextMonth = nextDate.toLocaleString('en-GB', { month: 'long' });
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      fireEvent.click(inputBirth);
+    });
+    const previousBtn = screen.getByTestId('previous-month');
+    const nextBtn = screen.getByTestId('next-month');
+    const monthSelect = screen.getByTestId('month-select');
+
+    // test after click on next month button
+    fireEvent.click(nextBtn);
+    expect(monthSelect.value).toEqual(nextMonth);
+
+    // test after click on previous month button
+    fireEvent.click(previousBtn);
+    expect(monthSelect.value).toEqual(actualMonth);
+  });
+
+  it('Should display rigth month and rigth year after select changing', async () => {
+    renderComponents();
+    const inputBirth = screen.getByLabelText('Date of Birth');
+
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    await act(async () => {
+      fireEvent.click(inputBirth);
+    });
+    const monthSelect = screen.getByTestId('month-select');
+    const yearSelect = screen.getByTestId('year-select');
+
+    fireEvent.change(monthSelect, {
+      target: {
+        value: 'June',
+      },
+    });
+    fireEvent.change(yearSelect, {
+      target: {
+        value: '2000',
+      },
+    });
+    expect(monthSelect.value).toEqual('June');
+    expect(yearSelect.value).toEqual('2000');
   });
 });

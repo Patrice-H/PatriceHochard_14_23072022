@@ -15,6 +15,25 @@ import './DatePicker.css';
 const DatePicker = (props) => {
   const { label, name, ...rest } = props;
 
+  const years = new Array(101);
+  for (let i = 0; i <= 100; i++) {
+    years[i] = 1950 + i;
+  }
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
   return (
     <div className="form-control">
       <label htmlFor={name}>{label}</label>
@@ -27,6 +46,70 @@ const DatePicker = (props) => {
             <DateView
               todayButton="🏠"
               id={name}
+              renderCustomHeader={({
+                date,
+                changeYear,
+                changeMonth,
+                decreaseMonth,
+                increaseMonth,
+                prevMonthButtonDisabled,
+                nextMonthButtonDisabled,
+              }) => (
+                <div
+                  style={{
+                    margin: 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <button
+                    className="previous-next-btn"
+                    data-testid="previous-month"
+                    onClick={(e) => {
+                      decreaseMonth();
+                      e.preventDefault();
+                    }}
+                    disabled={prevMonthButtonDisabled}
+                  >
+                    {'<'}
+                  </button>
+                  <select
+                    data-testid="month-select"
+                    value={months[date.getMonth()]}
+                    onChange={({ target: { value } }) =>
+                      changeMonth(months.indexOf(value))
+                    }
+                  >
+                    {months.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    data-testid="year-select"
+                    value={date.getFullYear()}
+                    onChange={({ target: { value } }) => changeYear(value)}
+                  >
+                    {years.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    className="previous-next-btn"
+                    data-testid="next-month"
+                    onClick={(e) => {
+                      increaseMonth();
+                      e.preventDefault();
+                    }}
+                    disabled={nextMonthButtonDisabled}
+                  >
+                    {'>'}
+                  </button>
+                </div>
+              )}
               {...field}
               {...rest}
               selected={value}
