@@ -1,6 +1,6 @@
 body {
   box-sizing: border-box;
-  margin: 0;
+  margin: 10px 0;
 }
 label {
   display: block;
@@ -17,7 +17,6 @@ button {
   justify-content: center;
 }
 .container {
-  width: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -31,9 +30,7 @@ button {
   min-width: 700px;
   padding-bottom: 50px;
 }
-
-@media (max-width: 992px) {
-  .container {
-    width: 94%;
-  }
+#page-container {
+  width: 1111px;
+  margin: auto;
 }

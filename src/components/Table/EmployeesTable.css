@@ -1,27 +1,29 @@
 #employees-table {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 #employees-table table {
-  width: 100%;
-  table-layout: auto;
   border-collapse: collapse;
 }
 #employees-table div.th {
   width: 100%;
   display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 10px;
-  padding-bottom: 5px;
+  position: relative;
   box-sizing: border-box;
 }
 #employees-table th {
-  text-align: right;
+  padding: 8px 0;
 }
 #employees-table tbody {
   border-top: solid black 1px;
   border-bottom: solid black 1px;
+}
+#employees-table .header-column {
+  margin: auto;
+}
+#employees-table .sort-icon {
+  position: absolute;
+  right: 0;
 }
 #employees-table td {
   padding: 8px 10px;
@@ -46,12 +48,30 @@ tbody tr:first-child {
 .header-column {
   text-align: left;
 }
-
-@media (max-width: 992px) {
-  #employees-table div.th {
-    padding-left: 5px;
-  }
-  #employees-table td {
-    padding: 0 5px;
-  }
+#first-name-column {
+  width: 113px;
+}
+#last-name-column {
+  width: 111px;
+}
+#start-date-column {
+  width: 107px;
+}
+#department-column {
+  width: 137px;
+}
+#date-of-birth-column {
+  width: 126px;
+}
+#street-column {
+  width: 208px;
+}
+#city-column {
+  width: 138px;
+}
+#state-column {
+  width: 71px;
+}
+#zip-code-column {
+  width: 100px;
 }

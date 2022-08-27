@@ -118,6 +118,7 @@ const EmployeesTable = () => {
                 {headerGroup.headers.map((column, index) => (
                   <th
                     key={index}
+                    id={`${formatId(column.Header)}-column`}
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                   >
                     <div

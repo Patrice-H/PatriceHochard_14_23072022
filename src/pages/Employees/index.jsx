@@ -10,7 +10,7 @@ import EmployeesTable from '../../components/Table';
  */
 const Employees = () => {
   return (
-    <>
+    <div id="page-container">
       <header className="page-title">
         <h1>Current Employees</h1>
       </header>
@@ -18,7 +18,7 @@ const Employees = () => {
         <EmployeesTable />
         <Link to="/">Home</Link>
       </div>
-    </>
+    </div>
   );
 };
 
