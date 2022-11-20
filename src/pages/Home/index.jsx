@@ -1,7 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EmployeesForm from '../../components/Form';
 import Modal from '@patrice-h/custom-modal';
-import '@patrice-h/custom-modal/dist/index.css';
 
 /**
  * Component that assembles multiple components and returns the home page
@@ -13,6 +13,16 @@ import '@patrice-h/custom-modal/dist/index.css';
  * @returns A function that returns the page
  */
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const displayModal = () => {
+    setIsModalOpen(true);
+  };
+  const hideModal = () => {
+    setIsModalOpen(false);
+    window.location.reload();
+  };
+
   return (
     <>
       <header className="page-title">
@@ -21,9 +31,13 @@ const Home = () => {
       <div className="container">
         <Link to="/employees">View Current Employees</Link>
         <h2>Create Employee</h2>
-        <EmployeesForm />
+        <EmployeesForm displayModal={displayModal} />
       </div>
-      <Modal />
+      <Modal
+        isOpen={isModalOpen}
+        text="Employee created !"
+        hideModal={hideModal}
+      />
     </>
   );
 };
