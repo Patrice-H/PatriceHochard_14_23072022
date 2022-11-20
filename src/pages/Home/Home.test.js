@@ -80,12 +80,12 @@ describe('Home page test suites', () => {
     fireEvent.change(ZipCodeInput, { target: { value: 99999 } });
 
     // Test before submit form
-    expect(modal.classList.contains('hidden')).toEqual(true);
+    expect(modal.classList.contains('hidden-modal')).toEqual(true);
 
     // test after submit form
     fireEvent.click(button);
     await waitFor(() => {
-      expect(modal.classList.contains('hidden')).toEqual(false);
+      expect(modal.classList.contains('hidden-modal')).toEqual(false);
     });
   });
 });
