@@ -31,8 +31,9 @@ const initialValues = {
  * @component
  * @returns {JSX} A function that returns the component
  */
-const EmployeesForm = () => {
+const EmployeesForm = (props) => {
   const dispatch = useAppDispatch();
+  const displayModal = props.displayModal;
 
   /**
    * Function that submits the form updating the store and displaying a confirmation modal.
@@ -41,10 +42,10 @@ const EmployeesForm = () => {
    * @param {object} values - Employee data
    */
   const onSubmit = (values) => {
-    const modal = document.getElementById('modal');
-    values = formatEmployeeData(values);
-    dispatch(addEmployee(values));
-    modal.classList.remove('hidden');
+    let data = { ...values };
+    formatEmployeeData(data);
+    displayModal();
+    dispatch(addEmployee(data));
   };
 
   return (
